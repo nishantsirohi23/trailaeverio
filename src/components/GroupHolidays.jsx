@@ -4,54 +4,40 @@ import { useNavigate } from 'react-router-dom';
 const trendingDestinations = [
   {
     name: 'Europe Group Departure',
-    image: 'https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?q=80&w=1470&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?q=80&w=1470&auto=format&fit=crop&q=10',
     location: 'Europe'
   },
   {
     name: 'Thailand Group Tour',
-    image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1439&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1439&auto=format&fit=crop&q=10',
     location: 'Thailand'
   },
   {
     name: 'Kedarnath Yatra Fixed Group',
-    image: 'https://images.unsplash.com/photo-1629981352504-b7f5210501c3?q=80&w=1470&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1629981352504-b7f5210501c3?q=80&w=1470&auto=format&fit=crop&q=10',
     location: 'India'
   },
   {
     name: 'Vietnam for Senior Citizens',
-    image: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=1528&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=1528&auto=format&fit=crop&q=10',
     location: 'Vietnam'
   },
   {
     name: 'Char Dham Yatra',
-    image: 'https://images.unsplash.com/photo-1601821139314-66a4d14cfc00?q=80&w=1488&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1601821139314-66a4d14cfc00?q=80&w=1488&auto=format&fit=crop&q=10',
     location: 'India'
   },
   {
     name: 'Bhutan Cultural Group Trip',
-    image: 'https://images.unsplash.com/photo-1598869012638-f5351b49498f?q=80&w=1470&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1598869012638-f5351b49498f?q=80&w=1470&auto=format&fit=crop&q=10',
     location: 'Bhutan'
   },
   {
     name: 'Dubai Expo Group Package',
-    image: 'https://plus.unsplash.com/premium_photo-1697730123368-3f4e90f41e91?q=80&w=1374&auto=format&fit=crop',
+    image: 'https://plus.unsplash.com/premium_photo-1697730123368-3f4e90f41e91?q=80&w=1374&auto=format&fit=crop&q=10',
     location: 'Dubai'
   },
-  {
-    name: 'Rann of Kutch with Friends',
-    image: 'https://images.unsplash.com/photo-1549468057-5b7fa1a41d7a?q=80&w=1471&auto=format&fit=crop',
-    location: 'India'
-  },
-  {
-    name: 'Bali Women-Only Group',
-    image: 'https://images.unsplash.com/photo-1554481924-0eecea3f21de?q=80&w=1470&auto=format&fit=crop',
-    location: 'Bali'
-  },
-  {
-    name: 'Kerala Senior Special Departure',
-    image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1632&auto=format&fit=crop',
-    location: 'India'
-  }
+ 
 ];
 
 export default function GroupHolidays() {

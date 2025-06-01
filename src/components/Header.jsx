@@ -45,7 +45,7 @@ function TopHeader() {
             {isNavOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
           <img
-            src="/src/assets/logo.png"
+            src="https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/logo.png?alt=media&token=bae838ca-e626-4bf8-8e14-34a96e7120f2"
             alt="PropTrak Logo"
             className="hidden md:block h-12 w-auto"
           />
@@ -54,7 +54,7 @@ function TopHeader() {
         {/* Centered Logo for Mobile & Desktop Nav */}
         <div className="flex flex-1 justify-center items-center">
           <img
-            src="/src/assets/logo.png"
+            src="https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/logo.png?alt=media&token=bae838ca-e626-4bf8-8e14-34a96e7120f2"
             alt="PropTrak Logo"
             className="md:hidden h-10 w-auto"
           />

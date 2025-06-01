@@ -2,13 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const trendingDestinations = [
-  { name: 'Europe Summer Sale', image: 'https://images.unsplash.com/photo-1501952476817-d7ae22e8ee4e?q=80', location: 'Europe' },
-  { name: 'Dubai Shopping Festival', image: 'https://images.unsplash.com/photo-1554203576-3b7d50b086ee?q=80', location: 'Dubai' },
-  { name: 'Bali Couple Special', image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80', location: 'Bali' },
-  { name: 'Thailand Party Package', image: 'https://images.unsplash.com/photo-1560359614-870d1a7ea91d?q=80', location: 'Thailand' },
-  { name: 'Turkey with Hot Air Balloon Ride', image: 'https://images.unsplash.com/photo-1559783684-874488c5f42f?q=80', location: 'Turkey' },
-  { name: 'Maldives Water Villa Offer', image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80', location: 'Maldives' },
-  { name: 'Andaman Summer Escape', image: 'https://plus.unsplash.com/premium_photo-1661962958462-9e52fda9954d?q=80', location: 'Andaman & Nicobar islands' },
+  { name: 'Europe Summer Sale', image: 'https://images.unsplash.com/photo-1501952476817-d7ae22e8ee4e?q=10', location: 'Europe' },
+  { name: 'Dubai Shopping Festival', image: 'https://images.unsplash.com/photo-1554203576-3b7d50b086ee?q=10', location: 'Dubai' },
+  { name: 'Bali Couple Special', image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=10', location: 'Bali' },
+  { name: 'Thailand Party Package', image: 'https://images.unsplash.com/photo-1560359614-870d1a7ea91d?q=10', location: 'Thailand' },
+  { name: 'Turkey with Hot Air Balloon Ride', image: 'https://images.unsplash.com/photo-1559783684-874488c5f42f?q=10', location: 'Turkey' },
+  { name: 'Maldives Water Villa Offer', image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=10', location: 'Maldives' },
+  { name: 'Andaman Summer Escape', image: 'https://plus.unsplash.com/premium_photo-1661962958462-9e52fda9954d?q=10', location: 'Andaman & Nicobar islands' },
 ];
 
 export default function InternationalPackages() {

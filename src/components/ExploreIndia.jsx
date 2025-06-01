@@ -2,13 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const trendingDestinations = [
-  { name: 'Leh Ladakh Expedition', image: 'https://images.unsplash.com/photo-1593118845043-359e5f628214?q=80&w=2940&auto=format&fit=crop', location: 'Jammu & Kashmir' },
-  { name: 'Kashmir Paradise', image: 'https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=2942&auto=format&fit=crop', location: 'Srinagar' },
-  { name: 'Himachal Hills & Snow', image: 'https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=3131&auto=format&fit=crop', location: 'Manali' },
-  { name: 'Spiti Valley Road Trip', image: 'https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?q=80&w=2940&auto=format&fit=crop', location: 'Himachal Pradesh' },
-  { name: 'Golden Triangle (Delhi–Agra–Jaipur)', image: 'https://images.unsplash.com/photo-1477586957327-847a0f3f4fe3?q=80&w=2940&auto=format&fit=crop', location: 'North India' },
-  { name: 'Kerala Backwaters', image: 'https://plus.unsplash.com/premium_photo-1697729442042-c071ef0415b0?q=80&w=2940&auto=format&fit=crop', location: 'Alleppey' },
-  { name: 'Rishikesh Yoga Retreat', image: 'https://images.unsplash.com/photo-1650341259809-9314b0de9268?q=80&w=2940&auto=format&fit=crop', location: 'Uttarakhand' },
+  { name: 'Leh Ladakh Expedition', image: 'https://images.unsplash.com/photo-1593118845043-359e5f628214?q=80&w=2940&auto=format&fit=crop&q=10', location: 'Jammu & Kashmir' },
+  { name: 'Kashmir Paradise', image: 'https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=2942&auto=format&fit=crop&q=10', location: 'Srinagar' },
+  { name: 'Himachal Hills & Snow', image: 'https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=3131&auto=format&fit=crop&q=10', location: 'Manali' },
+  { name: 'Spiti Valley Road Trip', image: 'https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?q=80&w=2940&auto=format&fit=crop&q=10', location: 'Himachal Pradesh' },
+  { name: 'Golden Triangle (Delhi–Agra–Jaipur)', image: 'https://images.unsplash.com/photo-1477586957327-847a0f3f4fe3?q=80&w=2940&auto=format&fit=crop&q=10', location: 'North India' },
+  { name: 'Kerala Backwaters', image: 'https://plus.unsplash.com/premium_photo-1697729442042-c071ef0415b0?q=80&w=2940&auto=format&fit=crop&q=10', location: 'Alleppey' },
+  { name: 'Rishikesh Yoga Retreat', image: 'https://images.unsplash.com/photo-1650341259809-9314b0de9268?q=80&w=2940&auto=format&fit=crop&q=10', location: 'Uttarakhand' },
 ];
 
 export default function ExploreIndia() {

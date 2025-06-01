@@ -7,23 +7,23 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
   {
-    image: "/src/assets/building.jpg",
+    image: "https://images.unsplash.com/photo-1501952476817-d7ae22e8ee4e?q=80",
     text: "Explore serene beaches and vibrant coastal towns.",
   },
   {
-    image: "/src/assets/logo.png",
+    image: "https://images.unsplash.com/photo-1554203576-3b7d50b086ee?q=80",
     text: "Experience the thrill of mountain adventures.",
   },
   {
-    image: "/src/assets/Photo.jpg",
+    image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80",
     text: "Immerse yourself in rich cultural heritage.",
   },
   {
-    image: "/src/assets/building.jpg",
+    image: "https://images.unsplash.com/photo-1560359614-870d1a7ea91d?q=80",
     text: "Discover hidden gems across the globe.",
   },
   {
-    image: "/src/assets/building.jpg",
+    image: "https://images.unsplash.com/photo-1559783684-874488c5f42f?q=80",
     text: "Craft memories that last a lifetime.",
   },
 ];
@@ -45,8 +45,8 @@ function Base() {
   ];
 
   return (
-<div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-20 items-center min-h-screen bg-black text-white px-6 md:px-16 py-16">
-{/* Left Section (Text) */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-20 items-center min-h-screen bg-black text-white px-6 md:px-16 py-16">
+      {/* Left Section */}
       <div className="space-y-6 max-w-2xl w-full">
         <motion.h1
           className="text-4xl md:text-6xl font-bold leading-tight"
@@ -80,7 +80,6 @@ function Base() {
           </Button>
         </div>
 
-        {/* Responsive Customer Stats Row */}
         <div className="grid grid-cols-3 gap-4 pt-10">
           {content.map((item, index) => (
             <motion.div
@@ -97,7 +96,7 @@ function Base() {
 
       {/* Right Section (Image Carousel) */}
       <motion.div
-        className="hidden lg:flex justify-center items-center w-full h-full"
+        className="hidden lg:flex justify-center items-center w-full h-[80vh]"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
@@ -107,7 +106,7 @@ function Base() {
             key={slides[currentIndex].image}
             src={slides[currentIndex].image}
             alt="Travel"
-            className="w-full max-h-[85vh] h-auto rounded-2xl shadow-2xl object-cover"
+            className="w-full h-full object-cover rounded-2xl shadow-2xl"
             initial={{ opacity: 0.3, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}

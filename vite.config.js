@@ -5,6 +5,8 @@ import path from "path"
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/', // ← This fixes image paths in production (Netlify)
+
   plugins: [
     tailwindcss(),
     react()
