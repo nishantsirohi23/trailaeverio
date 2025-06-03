@@ -1,4 +1,5 @@
 "use client";
+import { Link, useNavigate } from 'react-router-dom';
 
 import React, { useState, useEffect } from "react";
 import CustomerCard from "./Card";
@@ -30,6 +31,7 @@ const slides = [
 
 function Base() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -75,9 +77,12 @@ function Base() {
           <Button variant="outline" className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg">
             Learn More
           </Button>
-          <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg">
-            Browse Packages
-          </Button>
+          <Button
+      onClick={() => navigate('/explorer')}
+      className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg"
+    >
+      Browse Packages
+    </Button>
         </div>
 
         <div className="grid grid-cols-3 gap-4 pt-10">
