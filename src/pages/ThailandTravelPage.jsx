@@ -15,7 +15,7 @@ const ThailandTourPage = () => {
   const [whatsapp, setWhatsapp] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:5003/api/packages/683dea596f926b791c084297')
+    axios.get('https://aeverioserver.onrender.com/api/packages/683dea596f926b791c084297')
       .then(res => setData(res.data.data))
       .catch(err => console.error(err));
   }, []);
