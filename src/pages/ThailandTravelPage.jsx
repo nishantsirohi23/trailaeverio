@@ -13,7 +13,9 @@ const ThailandTourPage = () => {
   const [name, setName] = useState('');
   const [passengers, setPassengers] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
-
+    useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
   useEffect(() => {
     axios.get('https://aeverioserver.onrender.com/api/packages/683dea596f926b791c084297')
       .then(res => setData(res.data.data))
@@ -31,10 +33,98 @@ const ThailandTourPage = () => {
     entertainment: 'bg-yellow-900/20 text-yellow-300',
     rest: 'bg-orange-900/20 text-orange-300',
     transport: 'bg-cyan-900/20 text-cyan-300',
-    default: 'bg-green-800 text-green-300'
+    default: 'bg-green-900/20 text-green-300'
   };
 
-  if (!data) return <div className="text-white text-center mt-20">Loading...</div>;
+  // Shimmer Loading Component
+  const ShimmerLoading = () => {
+    return (
+      <div className="bg-black text-white min-h-screen pb-20 animate-pulse">
+        {/* Header Shimmer */}
+        <div className="text-center py-12 px-4">
+          <div className="h-12 bg-purple-900/30 rounded-full w-3/4 mx-auto mb-6"></div>
+          <div className="h-6 bg-purple-900/30 rounded-full w-1/2 mx-auto mb-8"></div>
+          <div className="h-4 bg-purple-900/30 rounded-full w-2/3 mx-auto"></div>
+        </div>
+
+        {/* Image Gallery Shimmer */}
+        <div className="flex flex-col items-center mb-12 px-4">
+          <div className="w-4/5 h-[400px] bg-purple-900/30 rounded-xl mb-4"></div>
+          <div className="flex gap-4 justify-center">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="w-20 h-16 bg-purple-900/30 rounded-lg"></div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col lg:flex-row max-w-6xl mx-auto px-4 gap-8">
+          <div className="flex-1">
+            {/* Info Cards Shimmer */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="border border-purple-500/30 rounded-xl p-4 bg-purple-900/10 h-24"></div>
+              ))}
+            </div>
+
+            {/* Itinerary Shimmer */}
+            <section>
+              <div className="h-10 bg-purple-900/30 rounded-full w-1/3 mx-auto mb-8"></div>
+              <div className="space-y-6">
+                {[1, 2, 3].map((day) => (
+                  <div key={day} className="bg-purple-900/10 rounded-xl border border-purple-700/30 h-40"></div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          {/* Form Shimmer */}
+          <div className="lg:w-1/3 h-fit border border-purple-700/30 bg-gradient-to-b from-purple-900/10 to-black p-6 rounded-2xl shadow-xl">
+            <div className="h-8 bg-purple-900/30 rounded-full w-1/2 mx-auto mb-6"></div>
+            <div className="space-y-5">
+              <div className="w-full bg-zinc-900/30 h-12 rounded-lg"></div>
+              <div className="w-full bg-zinc-900/30 h-12 rounded-lg"></div>
+              <div className="w-full bg-zinc-900/30 h-12 rounded-lg"></div>
+              <div className="w-full bg-purple-900/30 h-12 rounded-lg"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Inclusions/Exclusions Shimmer */}
+        <section className="px-4 py-12 max-w-6xl mx-auto">
+          <div className="h-10 bg-purple-900/30 rounded-full w-1/3 mx-auto mb-8"></div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-green-900/10 p-4 rounded-xl border border-green-700/30 h-64"></div>
+            <div className="bg-red-900/10 p-4 rounded-xl border border-red-700/30 h-64"></div>
+          </div>
+        </section>
+
+        {/* Important Info Shimmer */}
+        <section className="px-4 py-12 max-w-6xl mx-auto">
+          <div className="h-10 bg-purple-900/30 rounded-full w-1/3 mx-auto mb-8"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30 h-48"></div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA Shimmer */}
+        <section className="px-4 py-12 max-w-4xl mx-auto text-center">
+          <div className="h-10 bg-purple-900/30 rounded-full w-1/2 mx-auto mb-6"></div>
+          <div className="h-4 bg-purple-900/30 rounded-full w-1/3 mx-auto mb-8"></div>
+          <div className="flex justify-center gap-6 mb-4">
+            <div className="bg-purple-900/30 h-10 w-32 rounded-full"></div>
+            <div className="bg-purple-900/30 h-10 w-32 rounded-full"></div>
+          </div>
+          <div className="bg-orange-900/20 p-4 rounded-lg border border-orange-500/30 h-16 mb-6"></div>
+          <div className="h-3 bg-purple-900/30 rounded-full w-1/4 mx-auto mb-2"></div>
+          <div className="h-3 bg-purple-900/30 rounded-full w-1/3 mx-auto"></div>
+        </section>
+      </div>
+    );
+  };
+
+  if (!data) return <ShimmerLoading />;
 
   return (
     <div className="bg-black text-white min-h-screen pb-20">
@@ -170,57 +260,52 @@ const ThailandTourPage = () => {
         </div>
       </section>
 
-     
+      <section className="px-4 py-12 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center text-purple-300 mb-8">Important Information</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Cancellation Policy */}
+          <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
+            <h4 className="text-purple-400 font-semibold mb-2">Cancellation Policy</h4>
+            <ul className="list-disc list-inside text-gray-300 space-y-1">
+              <li>60+ days before: 50% charges</li>
+              <li>21-59 days before: 80% charges</li>
+              <li>0-20 days before: 100% charges</li>
+            </ul>
+          </div>
 
-      {/* Important Information */}
-     
-<section className="px-4 py-12 max-w-6xl mx-auto">
-  <h2 className="text-3xl font-bold text-center text-purple-300 mb-8">Important Information</h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {/* Cancellation Policy */}
-    <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
-      <h4 className="text-purple-400 font-semibold mb-2">Cancellation Policy</h4>
-      <ul className="list-disc list-inside text-gray-300 space-y-1">
-        <li>60+ days before: 50% charges</li>
-        <li>21-59 days before: 80% charges</li>
-        <li>0-20 days before: 100% charges</li>
-      </ul>
-    </div>
+          {/* Payment Schedule */}
+          <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
+            <h4 className="text-purple-400 font-semibold mb-2">Payment Schedule</h4>
+            <ul className="list-disc list-inside text-gray-300 space-y-1">
+              <li>30+ days before: 70% payment</li>
+              <li>21-30 days before: 90% payment</li>
+              <li>0-20 days before: 100% payment</li>
+            </ul>
+          </div>
 
-    {/* Payment Schedule */}
-    <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
-      <h4 className="text-purple-400 font-semibold mb-2">Payment Schedule</h4>
-      <ul className="list-disc list-inside text-gray-300 space-y-1">
-        <li>30+ days before: 70% payment</li>
-        <li>21-30 days before: 90% payment</li>
-        <li>0-20 days before: 100% payment</li>
-      </ul>
-    </div>
+          {/* Important Notes 1 */}
+          <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
+            <h4 className="text-purple-400 font-semibold mb-2">Important Notes</h4>
+            <ul className="list-disc list-inside text-gray-300 space-y-1">
+              <li>Valid for Indian Nationals only</li>
+              <li>Passport validity: 6+ months from travel date</li>
+              <li>Group transfers based on same flight arrival/departure</li>
+              <li>Hotel rooms subject to availability</li>
+            </ul>
+          </div>
 
-    {/* Important Notes 1 */}
-    <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
-      <h4 className="text-purple-400 font-semibold mb-2">Important Notes</h4>
-      <ul className="list-disc list-inside text-gray-300 space-y-1">
-        <li>Valid for Indian Nationals only</li>
-        <li>Passport validity: 6+ months from travel date</li>
-        <li>Group transfers based on same flight arrival/departure</li>
-        <li>Hotel rooms subject to availability</li>
-      </ul>
-    </div>
-
-    {/* Important Notes 2 */}
-    <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
-      <h4 className="text-purple-400 font-semibold mb-2">Important Notes</h4>
-      <ul className="list-disc list-inside text-gray-300 space-y-1">
-        <li>No refund for unused services</li>
-        <li>Visa facilitation provided, approval not guaranteed</li>
-        <li>Rates valid for mentioned dates only</li>
-        <li>Final vouchers issued after full payment</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
+          {/* Important Notes 2 */}
+          <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
+            <h4 className="text-purple-400 font-semibold mb-2">Important Notes</h4>
+            <ul className="list-disc list-inside text-gray-300 space-y-1">
+              <li>No refund for unused services</li>
+              <li>Visa facilitation provided, approval not guaranteed</li>
+              <li>Rates valid for mentioned dates only</li>
+              <li>Final vouchers issued after full payment</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* Call to Action */}
       <section className="px-4 py-12 max-w-4xl mx-auto text-center">
@@ -236,7 +321,6 @@ const ThailandTourPage = () => {
         </div>
         <p className="text-sm text-purple-400 mt-6">Operated by Aerovia Holidays<br />Your trusted travel partner for unforgettable experiences</p>
       </section>
-
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Menu, X } from 'lucide-react';
 
-const NAV_ITEMS = ['Home', 'About Us', 'Services'];
+const NAV_ITEMS = ['Home', 'About Us', 'Services', 'Destinations'];
 
 function TopHeader() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -15,10 +15,10 @@ function TopHeader() {
         return '/';
       case 'About Us':
         return '/about';
-      case 'Packages':
-        return '/packages';
       case 'Services':
         return '/services';
+      case 'Destinations':
+        return '/explorer';
       default:
         return '#';
     }
@@ -46,7 +46,7 @@ function TopHeader() {
           </Button>
           <img
             src="https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/logo.png?alt=media&token=bae838ca-e626-4bf8-8e14-34a96e7120f2"
-            alt="PropTrak Logo"
+            alt="Aerovio Logo"
             className="hidden md:block h-12 w-auto"
           />
         </div>
@@ -67,14 +67,14 @@ function TopHeader() {
                     to={getHref(item)}
                     className={`relative px-1 py-2 transition-colors duration-300 ${
                       isActive(item)
-                        ? 'text-indigo-400'
-                        : 'text-white hover:text-indigo-400'
+                        ? 'text-purple-400'
+                        : 'text-white hover:text-purple-400'
                     }`}
                   >
                     {item}
                     <span
                       className={`absolute bottom-0 left-0 h-0.5 transition-all duration-300 ${
-                        isActive(item) ? 'w-full bg-pruple-600' : 'w-0 bg-pruple-600 hover:w-full'
+                        isActive(item) ? 'w-full bg-purple-600' : 'w-0 bg-purple-600 hover:w-full'
                       }`}
                     ></span>
                   </Link>
@@ -90,8 +90,8 @@ function TopHeader() {
             to="/contact"
             className={`text-sm lg:text-lg font-semibold transition-colors duration-300 ${
               location.pathname === '/contact'
-                ? 'text-indigo-400'
-                : 'text-white hover:text-indigo-400'
+                ? 'text-purple-400'
+                : 'text-white hover:text-purple-400'
             }`}
           >
             Contact Us
@@ -108,7 +108,7 @@ function TopHeader() {
                 <Link
                   to={getHref(item)}
                   className={`block rounded-lg px-3 py-2 transition-colors duration-300 ${
-                    isActive(item) ? 'bg-indigo-700 text-white' : 'hover:bg-indigo-700'
+                    isActive(item) ? 'bg-purple-700 text-white' : 'hover:bg-purple-700'
                   }`}
                   onClick={() => setIsNavOpen(false)}
                 >
@@ -120,7 +120,7 @@ function TopHeader() {
               <Link
                 to="/contact"
                 className={`block rounded-lg px-3 py-2 transition-colors duration-300 font-semibold ${
-                  location.pathname === '/contact' ? 'bg-indigo-700' : 'hover:bg-indigo-700'
+                  location.pathname === '/contact' ? 'bg-purple-700' : 'hover:bg-purple-700'
                 }`}
                 onClick={() => setIsNavOpen(false)}
               >
