@@ -8,6 +8,8 @@ import ContactPage from './pages/ContactPage';
 import ContinentalPackages from './pages/PackageExplorer';
 import ThailandTravelPage from './pages/ThailandTravelPage';
 import ErrorPage from './pages/ErrorPage';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
         {/* ✅ Catch-all route for 404 */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <SpeedInsights />
     </>
   );
 }
