@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Plane, Globe, Clock, Shield, CheckCircle, ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const Services = () => {
     useEffect(() => {
@@ -115,6 +116,14 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative">
+      <Helmet>
+        <title>Visa Services | Aerovia Holidays</title>
+        <meta
+          name="description"
+          content="Explore international visa services including Schengen, Dubai, USA, UK, and more with expert support and fast processing from Aerovia Holidays."
+        />
+        <link rel="canonical" href="https://aeroviaholidays.com/services" />
+      </Helmet>
       {/* Extended Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-tl from-purple-600/20 via-purple-600/8 via-purple-600/4 via-purple-600/2 to-black"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
