@@ -59,7 +59,7 @@ function QueryForm() {
     };
 
     try {
-      const response = await fetch('http://192.168.31.61:5003/api/queryform', {
+      const response = await fetch('https://api.perpenny.in/api/queryform', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -21,10 +21,10 @@ const ThailandTourPage = () => {
         }, []);
   useEffect(() => {
    
-    const url = `http://192.168.31.61:5003/api/packages/${title}`;
+    const url = `https://api.perpenny.in/api/packages/${title}`;
 
     console.log('Fetching from URL:', url); // ✅ Log the URL
-    axios.get(`http://192.168.31.61:5003/api/packages/${title}`)
+    axios.get(`https://api.perpenny.in/api/packages/${title}`)
       .then(res => setData(res.data.data))
       .catch(err => console.error(err));
   }, []);

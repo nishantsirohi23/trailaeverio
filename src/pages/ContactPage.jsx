@@ -90,7 +90,7 @@ export default function ContactPage() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('http://192.168.31.61:5003/api/messages', {
+      const response = await fetch('https://api.perpenny.in/api/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -365,7 +365,7 @@ export default function ContactPage() {
           from {
             opacity: 0;
             transform: translateY(30px);
-          }
+          }s
           to {
             opacity: 1;
             transform: translateY(0);
