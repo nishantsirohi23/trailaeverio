@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Send, Plane } from 'lucide-react';
+import { toast, Toaster } from 'react-hot-toast';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ export default function ContactPage() {
   
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -80,16 +82,72 @@ export default function ContactPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = () => {
-    if (validateForm()) {
-      alert('Thank you for your message! We\'ll get back to you soon.');
+  const handleSubmit = async () => {
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('http://192.168.31.61:5003/api/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phoneNumber: formData.phone,
+          requirement: formData.message
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      const data = await response.json();
+      
+      toast.success('Message sent successfully! We will get back to you soon.', {
+        duration: 5000,
+        position: 'top-center',
+        style: {
+          background: '#10B981',
+          color: '#fff',
+          padding: '16px',
+          borderRadius: '12px',
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        },
+      });
+
+      // Reset form
       setFormData({ name: '', email: '', phone: '', message: '' });
       setErrors({ name: '', email: '', phone: '', message: '' });
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Failed to send message. Please try again later.', {
+        duration: 5000,
+        position: 'top-center',
+        style: {
+          background: '#EF4444',
+          color: '#fff',
+          padding: '16px',
+          borderRadius: '12px',
+          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        },
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Toast Notifications */}
+      <Toaster />
+      
       {/* Animated Background with Glowing Lines */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating orbs */}
@@ -276,14 +334,24 @@ export default function ContactPage() {
                   onClick={handleSubmit}
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
-                  className="relative w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-black font-bold py-4 px-8 rounded-2xl transition-all duration-300 flex items-center justify-center space-x-3 transform hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/50 group/button overflow-hidden"
+                  disabled={isSubmitting}
+                  className="relative w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-black font-bold py-4 px-8 rounded-2xl transition-all duration-300 flex items-center justify-center space-x-3 transform hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/50 group/button overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed"
                   style={{
                     animation: 'fadeInUp 0.6s ease-out 0.4s both'
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover/button:translate-x-full transition-transform duration-700"></div>
-                  <Send className={`w-6 h-6 transition-transform duration-300 ${isHovered ? 'rotate-12 scale-110' : ''}`} />
-                  <span className="relative z-10">Send Message</span>
+                  {isSubmitting ? (
+                    <div className="relative z-10 flex items-center">
+                      <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin mr-2"></div>
+                      Sending...
+                    </div>
+                  ) : (
+                    <>
+                      <Send className={`w-6 h-6 transition-transform duration-300 ${isHovered ? 'rotate-12 scale-110' : ''}`} />
+                      <span className="relative z-10">Send Message</span>
+                    </>
+                  )}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-pink-400/50 to-pink-600/50 blur-xl opacity-0 group-hover/button:opacity-100 transition-opacity duration-300"></div>
                 </button>
               </div>

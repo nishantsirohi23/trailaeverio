@@ -1,13 +1,86 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const budgets = ['Budget per person', '₹5,000 - ₹10,000', '₹10,000 - ₹20,000', '₹20,000+'];
 const travelers = ['Number of travelers', '1', '2', '3+'];
-const tripTypes = ['Trip type', 'Adventure', 'Relaxation', 'Family', 'Couple'];
 
 function QueryForm() {
-  const [selectedBudget, setSelectedBudget] = useState(budgets[0]);
+  const navigate = useNavigate();
   const [selectedTravelers, setSelectedTravelers] = useState(travelers[0]);
-  const [selectedTripType, setSelectedTripType] = useState(tripTypes[0]);
+  const [destination, setDestination] = useState('');
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const validateForm = () => {
+    if (!name.trim()) {
+      toast.error('Please enter your name');
+      return false;
+    }
+    
+    if (!mobile.trim() || !/^\d{10}$/.test(mobile)) {
+      toast.error('Please enter a valid 10-digit phone number');
+      return false;
+    }
+    
+    if (!destination.trim()) {
+      toast.error('Please enter destination');
+      return false;
+    }
+    
+    if (selectedTravelers === travelers[0]) {
+      toast.error('Please select number of travelers');
+      return false;
+    }
+    
+    if (!email.trim() || !/^\S+@\S+\.\S+$/.test(email)) {
+      toast.error('Please enter a valid email address');
+      return false;
+    }
+    
+    return true;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+    
+    setIsSubmitting(true);
+    
+    const formData = {
+      name,
+      email,
+      mobile,
+      numberOfTravellers: selectedTravelers,
+      destination
+    };
+
+    try {
+      const response = await fetch('http://192.168.31.61:5003/api/queryform', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        navigate('/formsuccess');
+      } else {
+        toast.error(data.message || 'Failed to submit form. Please try again.');
+      }
+    } catch (error) {
+      toast.error('Network error. Please try again.');
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="bg-black px-6 py-10 mx-auto text-center text-white shadow-md">
@@ -18,29 +91,30 @@ function QueryForm() {
         Tell us about your travel preferences and we'll send you customized trip ideas on WhatsApp!
       </p>
 
-      <form className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto mb-6">
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto mb-6">
         <input
           type="text"
           placeholder="Your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           className="bg-zinc-800 border border-zinc-700 rounded-md px-4 py-3 text-sm text-white w-full placeholder-white"
         />
         <input
           type="text"
           placeholder="WhatsApp number"
+          value={mobile}
+          onChange={(e) => setMobile(e.target.value)}
           className="bg-zinc-800 border border-zinc-700 rounded-md px-4 py-3 text-sm text-white w-full placeholder-white"
+          maxLength="10"
         />
 
-        <select
-          value={selectedBudget}
-          onChange={(e) => setSelectedBudget(e.target.value)}
-          className="bg-zinc-800 border border-zinc-700 rounded-md px-4 py-3 text-sm text-white w-full appearance-none"
-        >
-          {budgets.map((option, idx) => (
-            <option key={idx} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
+        <input
+          type="text"
+          placeholder="Destination"
+          value={destination}
+          onChange={(e) => setDestination(e.target.value)}
+          className="bg-zinc-800 border border-zinc-700 rounded-md px-4 py-3 text-sm text-white w-full placeholder-white"
+        />
 
         <select
           value={selectedTravelers}
@@ -55,23 +129,25 @@ function QueryForm() {
         </select>
 
         <div className="sm:col-span-2">
-          <select
-            value={selectedTripType}
-            onChange={(e) => setSelectedTripType(e.target.value)}
-            className="bg-zinc-800 border border-zinc-700 rounded-md px-4 py-3 text-sm text-white w-full appearance-none"
+          <input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="bg-zinc-800 border border-zinc-700 rounded-md px-4 py-3 text-sm text-white w-full placeholder-white"
+          />
+        </div>
+
+        <div className="sm:col-span-2 flex justify-center">
+          <button 
+            type="submit"
+            disabled={isSubmitting}
+            className={`w-full sm:w-auto ${isSubmitting ? 'bg-purple-800' : 'bg-purple-600 hover:bg-purple-700'} text-white font-medium px-6 py-3 rounded-md transition-colors`}
           >
-            {tripTypes.map((option, idx) => (
-              <option key={idx} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+            {isSubmitting ? 'Submitting...' : 'Get Trips on WhatsApp'}
+          </button>
         </div>
       </form>
-
-      <button className="w-full sm:w-auto bg-purple-600 hover:bg-purple-700 text-white font-medium px-6 py-3 rounded-md transition-colors">
-        Get Trips on WhatsApp
-      </button>
 
       <p className="text-xs text-zinc-500 mt-4 max-w-lg mx-auto">
         By submitting this form, you agree to receive trip recommendations via WhatsApp from Aerovia.

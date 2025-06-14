@@ -1,12 +1,15 @@
 // Finalized Thailand Tour Page with updated color-coded itinerary and enhanced enquiry form
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
 import {
   Plane, Calendar, Users, Star, ChevronDown, ChevronUp,
   CheckCircle, X, Clock
 } from 'lucide-react';
 
 const ThailandTourPage = () => {
+  const { title } = useParams(); // 🧠 fetches 'title' from /exp/:title
   const [data, setData] = useState(null);
   const [expandedDay, setExpandedDay] = useState(null);
   const [selectedImage, setSelectedImage] = useState(0);
@@ -17,7 +20,11 @@ const ThailandTourPage = () => {
             window.scrollTo(0, 0);
         }, []);
   useEffect(() => {
-    axios.get('https://aeverioserver.onrender.com/api/packages/683dea596f926b791c084297')
+   
+    const url = `http://192.168.31.61:5003/api/packages/${title}`;
+
+    console.log('Fetching from URL:', url); // ✅ Log the URL
+    axios.get(`http://192.168.31.61:5003/api/packages/${title}`)
       .then(res => setData(res.data.data))
       .catch(err => console.error(err));
   }, []);

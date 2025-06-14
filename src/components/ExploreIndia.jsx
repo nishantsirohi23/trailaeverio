@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const trendingDestinations = [
-  { name: 'Leh Ladakh Expedition', image: 'https://images.unsplash.com/photo-1593118845043-359e5f628214?q=80&w=2940&auto=format&fit=crop&q=10', location: 'Jammu & Kashmir' },
-  { name: 'Kashmir Paradise', image: 'https://images.unsplash.com/photo-1715457573748-8e8a70b2c1be?q=80&w=2942&auto=format&fit=crop&q=10', location: 'Srinagar' },
-  { name: 'Himachal Hills & Snow', image: 'https://images.unsplash.com/photo-1581791534721-e599df4417f7?q=80&w=3131&auto=format&fit=crop&q=10', location: 'Manali' },
-  { name: 'Spiti Valley Road Trip', image: 'https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?q=80&w=2940&auto=format&fit=crop&q=10', location: 'Himachal Pradesh' },
-  { name: 'Golden Triangle (Delhi–Agra–Jaipur)', image: 'https://images.unsplash.com/photo-1477586957327-847a0f3f4fe3?q=80&w=2940&auto=format&fit=crop&q=10', location: 'North India' },
-  { name: 'Kerala Backwaters', image: 'https://plus.unsplash.com/premium_photo-1697729442042-c071ef0415b0?q=80&w=2940&auto=format&fit=crop&q=10', location: 'Alleppey' },
-  { name: 'Rishikesh Yoga Retreat', image: 'https://images.unsplash.com/photo-1650341259809-9314b0de9268?q=80&w=2940&auto=format&fit=crop&q=10', location: 'Uttarakhand' },
+  { name: 'Europe', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.46%20PM.jpeg?alt=media&token=01483c8b-e298-4164-be58-26458dc081b6', location: 'Maldives' },
+  { name: 'Middle East', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.52.57%20PM.jpeg?alt=media&token=7899eaa4-6e4e-4dda-84c8-e61c876ea0eb', location: 'Europe' },
+  { name: 'Asia', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.13%20PM.jpeg?alt=media&token=b753b538-b75c-4b2a-a2d1-055185b3a81e', location: 'Dubai' },
+  { name: 'New Zealand', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.21%20PM.jpeg?alt=media&token=8d33f19d-8e25-4a9a-aa33-6f436d622f59', location: 'Bali' },
+  { name: 'Australia', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.27%20PM.jpeg?alt=media&token=267d76fd-2a12-47b4-aa24-285a56735c57', location: 'Thailand' },
+  { name: 'Africa', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.37%20PM.jpeg?alt=media&token=1ad52980-fc80-4d1f-bad8-c03e982bb0a7', location: 'Turkey' },
+  { name: 'India', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.58.29%20PM.jpeg?alt=media&token=7d479600-49fe-4575-9aac-e537fd2559a1', location: 'Andaman & Nicobar islands' },
 ];
+
+// Memoized destination card component
+const DestinationCard = memo(({ name, image, location, onClick }) => (
+  <div
+    onClick={onClick}
+    className="cursor-pointer min-w-[250px] max-w-[250px] h-64 rounded-2xl overflow-hidden relative shadow-lg border border-purple-700 hover:shadow-purple-600 transition duration-300 snap-start"
+  >
+    <img
+      src={image}
+      alt={name}
+      loading="lazy"
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+    <div className="absolute bottom-0 p-4">
+      <h3 className="text-lg font-semibold text-white mb-1">{name}</h3>
+      <p className="text-sm text-zinc-300">📍 {location}</p>
+    </div>
+  </div>
+));
 
 export default function ExploreIndia() {
   const navigate = useNavigate();
@@ -24,19 +44,14 @@ export default function ExploreIndia() {
       </div>
       <div className="w-full overflow-x-auto no-scrollbar pb-4">
         <div className="flex gap-6 px-4 sm:px-8 xl:px-16 snap-x snap-mandatory">
-          {trendingDestinations.map((item, idx) => (
-            <div
-              key={idx}
+          {trendingDestinations.map((item) => (
+            <DestinationCard
+              key={item.name}
+              name={item.name}
+              image={item.image}
+              location={item.location}
               onClick={() => navigate(`/package/${encodeURIComponent(item.name)}`)}
-              className="cursor-pointer min-w-[250px] max-w-[250px] h-64 rounded-2xl overflow-hidden relative shadow-lg border border-purple-700 hover:shadow-purple-600 transition duration-300 snap-start"
-            >
-              <img src={item.image} alt={item.name} className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-              <div className="absolute bottom-0 p-4">
-                <h3 className="text-lg font-semibold text-white mb-1">{item.name}</h3>
-                <p className="text-sm text-zinc-300">📍 {item.location}</p>
-              </div>
-            </div>
+            />
           ))}
         </div>
       </div>
