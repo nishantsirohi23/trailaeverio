@@ -15,41 +15,53 @@ function QueryForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
+    // Check if all fields are empty/default
+    if (
+      !name.trim() &&
+      !mobile.trim() &&
+      !destination.trim() &&
+      !email.trim() &&
+      selectedTravelers === travelers[0]
+    ) {
+      toast.error('Please fill in the form before submitting');
+      return false;
+    }
+
     if (!name.trim()) {
       toast.error('Please enter your name');
       return false;
     }
-    
+
     if (!mobile.trim() || !/^\d{10}$/.test(mobile)) {
       toast.error('Please enter a valid 10-digit phone number');
       return false;
     }
-    
+
     if (!destination.trim()) {
       toast.error('Please enter destination');
       return false;
     }
-    
+
     if (selectedTravelers === travelers[0]) {
       toast.error('Please select number of travelers');
       return false;
     }
-    
+
     if (!email.trim() || !/^\S+@\S+\.\S+$/.test(email)) {
       toast.error('Please enter a valid email address');
       return false;
     }
-    
+
     return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
-    
+
     const formData = {
       name,
       email,

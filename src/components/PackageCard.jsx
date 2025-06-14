@@ -17,7 +17,9 @@ const getIconForTag = (tag) => {
   return <Tag className="w-4 h-4 text-indigo-400" />;
 };
 
-const PackageCard = ({ imageSrc, name, details, tags = [] }) => {
+const PackageCard = ({ imageSrc, name, details, tags = [], duration }) => {
+  const navigate = useNavigate(); // ✅ Get navigate function
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -57,9 +59,8 @@ const PackageCard = ({ imageSrc, name, details, tags = [] }) => {
             </div>
             </div>
             <div className="flex justify-between items-center pt-2 pl-6 pr-10 pb-9">
-            <p className="text-lg font-semibold">Starting ₹15000</p>
+            <p className="text-lg font-semibold">{duration}</p>
             <Button
-              onClick={() => navigate(`/package/`)}
               className="bg-indigo-600 hover:bg-indigo-700 text-sm px-4 py-2 rounded-xl"
             >
               View Package Details
