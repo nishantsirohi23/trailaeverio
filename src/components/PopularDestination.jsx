@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import DestinationTag from './DestinationTag';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -43,6 +44,7 @@ const getItemsPerSlide = (width) => {
 const PopularDestinations = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(getItemsPerSlide(window.innerWidth));
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const handleResize = () => {
@@ -76,7 +78,11 @@ const PopularDestinations = () => {
               Explore our handpicked selection of featured packages.
             </p>
           </div>
-          <Button variant="outline" className="bg-zinc-800 text-white hover:bg-zinc-700">
+          <Button
+            variant="outline"
+            className="bg-zinc-800 text-white hover:bg-zinc-700"
+            onClick={() => navigate('/explorer')} // Navigate to /explorer on click
+          >
             View All Packages
           </Button>
         </div>
