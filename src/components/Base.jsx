@@ -8,23 +8,23 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1501952476817-d7ae22e8ee4e?q=80",
+    image: "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.52.57%20PM.jpeg?alt=media&token=7899eaa4-6e4e-4dda-84c8-e61c876ea0eb",
     text: "Explore serene beaches and vibrant coastal towns.",
   },
   {
-    image: "https://images.unsplash.com/photo-1554203576-3b7d50b086ee?q=80",
+    image: "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.13%20PM.jpeg?alt=media&token=b753b538-b75c-4b2a-a2d1-055185b3a81e",
     text: "Experience the thrill of mountain adventures.",
   },
   {
-    image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80",
+    image: "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.27%20PM.jpeg?alt=media&token=267d76fd-2a12-47b4-aa24-285a56735c57",
     text: "Immerse yourself in rich cultural heritage.",
   },
   {
-    image: "https://images.unsplash.com/photo-1560359614-870d1a7ea91d?q=80",
+    image: "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.46%20PM.jpeg?alt=media&token=01483c8b-e298-4164-be58-26458dc081b6",
     text: "Discover hidden gems across the globe.",
   },
   {
-    image: "https://images.unsplash.com/photo-1559783684-874488c5f42f?q=80",
+    image: "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.58.29%20PM.jpeg?alt=media&token=7d479600-49fe-4575-9aac-e537fd2559a1",
     text: "Craft memories that last a lifetime.",
   },
 ];

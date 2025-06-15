@@ -7,25 +7,33 @@ import {
   Plane, Calendar, Users, Star, ChevronDown, ChevronUp,
   CheckCircle, X, Clock
 } from 'lucide-react';
+import ReviewCard from '@/components/ReviewCard';
 
 const ThailandTourPage = () => {
   const { title } = useParams(); // 🧠 fetches 'title' from /exp/:title
   const [data, setData] = useState(null);
+  const [reviews, setReviews] = useState([]); // State to store reviews
   const [expandedDay, setExpandedDay] = useState(null);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [name, setName] = useState('');
-  const [passengers, setPassengers] = useState('');
-  const [whatsapp, setWhatsapp] = useState('');
-    useEffect(() => {
-            window.scrollTo(0, 0);
-        }, []);
+
   useEffect(() => {
-   
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const url = `https://api.perpenny.in/api/packages/${title}`;
 
     console.log('Fetching from URL:', url); // ✅ Log the URL
-    axios.get(`https://api.perpenny.in/api/packages/${title}`)
+    axios.get(url)
       .then(res => setData(res.data.data))
+      .catch(err => console.error(err));
+  }, [title]);
+
+  // Fetch reviews from the API
+  useEffect(() => {
+    const reviewsUrl = 'https:/api.perpenny.in/api/reviews/684b1678743424e7fb1074e7';
+    axios.get(reviewsUrl)
+      .then(res => setReviews(res.data.data)) // Map the `data` array from the API response
       .catch(err => console.error(err));
   }, []);
 
@@ -222,20 +230,14 @@ const ThailandTourPage = () => {
           <h3 className="text-xl font-bold text-purple-400 mb-6 text-center">Plan Your Trip</h3>
           <div className="space-y-5">
             <input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
               placeholder="Your Name"
               className="w-full bg-zinc-900 border border-purple-700/40 p-3 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
             <input
-              value={passengers}
-              onChange={(e) => setPassengers(e.target.value)}
               placeholder="Number of Travellers"
               className="w-full bg-zinc-900 border border-purple-700/40 p-3 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
             <input
-              value={whatsapp}
-              onChange={(e) => setWhatsapp(e.target.value)}
               placeholder="WhatsApp Number"
               className="w-full bg-zinc-900 border border-purple-700/40 p-3 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
@@ -267,56 +269,31 @@ const ThailandTourPage = () => {
         </div>
       </section>
 
+      {/* Reviews Section */}
       <section className="px-4 py-12 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center text-purple-300 mb-8">Important Information</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Cancellation Policy */}
-          <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
-            <h4 className="text-purple-400 font-semibold mb-2">Cancellation Policy</h4>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>60+ days before: 50% charges</li>
-              <li>21-59 days before: 80% charges</li>
-              <li>0-20 days before: 100% charges</li>
-            </ul>
-          </div>
-
-          {/* Payment Schedule */}
-          <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
-            <h4 className="text-purple-400 font-semibold mb-2">Payment Schedule</h4>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>30+ days before: 70% payment</li>
-              <li>21-30 days before: 90% payment</li>
-              <li>0-20 days before: 100% payment</li>
-            </ul>
-          </div>
-
-          {/* Important Notes 1 */}
-          <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
-            <h4 className="text-purple-400 font-semibold mb-2">Important Notes</h4>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>Valid for Indian Nationals only</li>
-              <li>Passport validity: 6+ months from travel date</li>
-              <li>Group transfers based on same flight arrival/departure</li>
-              <li>Hotel rooms subject to availability</li>
-            </ul>
-          </div>
-
-          {/* Important Notes 2 */}
-          <div className="bg-purple-900/10 p-6 rounded-xl border border-purple-700/30">
-            <h4 className="text-purple-400 font-semibold mb-2">Important Notes</h4>
-            <ul className="list-disc list-inside text-gray-300 space-y-1">
-              <li>No refund for unused services</li>
-              <li>Visa facilitation provided, approval not guaranteed</li>
-              <li>Rates valid for mentioned dates only</li>
-              <li>Final vouchers issued after full payment</li>
-            </ul>
-          </div>
+        <h2 className="text-3xl font-bold text-center text-purple-300 mb-8">Customer Reviews</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {reviews.length > 0 ? (
+            reviews.map((review, index) => (
+              <ReviewCard
+                key={review._id}
+                username={review.name}
+                rating={review.starRating}
+                location={review.destination}
+                title={`Review by ${review.name}`}
+                review={review.review}
+                profileUrl="" // Assuming no profile URL is provided in the API response
+              />
+            ))
+          ) : (
+            <p className="text-center text-gray-400 col-span-full">No reviews available.</p>
+          )}
         </div>
       </section>
 
       {/* Call to Action */}
       <section className="px-4 py-12 max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-white mb-4">Ready to Explore Thailand?</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">Ready to Explore?</h2>
         <p className="text-purple-300 mb-6">Contact us now to secure your dream vacation</p>
         <div className="flex justify-center gap-6 mb-4">
           <button className="bg-purple-700 hover:bg-purple-600 text-white py-2 px-6 rounded-full">Call Now</button>
@@ -324,7 +301,7 @@ const ThailandTourPage = () => {
         </div>
         <div className="bg-orange-900/20 text-orange-300 p-4 rounded-lg border border-orange-500/30">
           <Clock className="inline w-4 h-4 mr-2" />
-          This proposal is valid for only 2 working days. Book now to secure your Thailand adventure!
+          This package is fully customizable. Contact us to tailor it to your needs!
         </div>
         <p className="text-sm text-purple-400 mt-6">Operated by Aerovia Holidays<br />Your trusted travel partner for unforgettable experiences</p>
       </section>

@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
@@ -36,10 +35,7 @@ const ReviewCard = (props) => {
           <h3 className="text-xl font-semibold mb-2">{title}</h3>
           <p className="text-sm text-gray-300 mb-6">{review}</p>
           <div className="flex items-center gap-3">
-            <Avatar>
-              <AvatarImage src={profileUrl} alt={username} />
-              <AvatarFallback>{username.charAt(0)}</AvatarFallback>
-            </Avatar>
+
             <div>
               <p className="font-medium text-white">{username}</p>
               <p className="text-sm text-gray-400">{location}</p>

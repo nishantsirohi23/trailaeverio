@@ -10,6 +10,7 @@ import ThailandTravelPage from './pages/ThailandTravelPage';
 import ErrorPage from './pages/ErrorPage';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import FormSuccessPage from './pages/FormSucessPage';
+import SubmitReviewPage from './pages/SubmitReviewPage';
 
 
 function App() {
@@ -23,9 +24,10 @@ function App() {
         <Route path="/about" element={<AeroviaAboutUs />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/explorer/:continent?" element={<ContinentalPackages />} />
-        <Route path="/exp/:title" element={<ThailandTravelPage />} />
-  
+        <Route path="/exp/:title" element={<ThailandTravelPage />} />  
         <Route path="/formsuccess" element={<FormSuccessPage />} />
+        <Route path="/submit-review/:id" element={<SubmitReviewPage />} />
+
         {/* ✅ Catch-all route for 404 */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
