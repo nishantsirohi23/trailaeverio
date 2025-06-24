@@ -2,13 +2,56 @@ import React, { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const trendingDestinations = [
-  { name: 'Europe', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.46%20PM.jpeg?alt=media&token=01483c8b-e298-4164-be58-26458dc081b6', location: 'Maldives' },
-  { name: 'Middle East', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.52.57%20PM.jpeg?alt=media&token=7899eaa4-6e4e-4dda-84c8-e61c876ea0eb', location: 'Europe' },
-  { name: 'Asia', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.13%20PM.jpeg?alt=media&token=b753b538-b75c-4b2a-a2d1-055185b3a81e', location: 'Dubai' },
-  { name: 'New Zealand', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.21%20PM.jpeg?alt=media&token=8d33f19d-8e25-4a9a-aa33-6f436d622f59', location: 'Bali' },
-  { name: 'Australia', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.27%20PM.jpeg?alt=media&token=267d76fd-2a12-47b4-aa24-285a56735c57', location: 'Thailand' },
-  { name: 'Africa', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.37%20PM.jpeg?alt=media&token=1ad52980-fc80-4d1f-bad8-c03e982bb0a7', location: 'Turkey' },
-  { name: 'India', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.58.29%20PM.jpeg?alt=media&token=7d479600-49fe-4575-9aac-e537fd2559a1', location: 'Andaman & Nicobar islands' },
+  { 
+    name: 'Eastern Europe', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2F_europe%203%20(%208%20march).png?alt=media&token=d3626380-50fe-433d-9a31-af50dbbf65e3', 
+    location: 'Historic Capitals' 
+  },
+  { 
+    name: 'Western Europe', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2F_europe%204%20(%2016%20dec).png?alt=media&token=bbd9201b-3c37-43a2-a9f4-2c4a80521b21', 
+    location: 'France & Switzerland' 
+  },
+  { 
+    name: 'Alpine Europe', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2F_europe%205%20(%20paris%20swiss).png?alt=media&token=22265c2f-6a1e-4345-9b56-ee77c7be090f', 
+    location: 'Swiss Mountains' 
+  },
+  { 
+    name: 'Mediterranean', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feastern%20europe.png?alt=media&token=c885f7f3-1db0-4789-ae00-7e52c7b02207', 
+    location: 'Greece Islands' 
+  },
+  { 
+    name: 'Southern Europe', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feruope%206%20japan%20korea.png?alt=media&token=71a68640-305e-4dad-94c9-a2a0d9601edd', 
+    location: 'Italy' 
+  },
+  { 
+    name: 'British Isles', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feruope%207%20%20spain.png?alt=media&token=23ae963d-bb67-4658-908f-731e2f279cf9', 
+    location: 'London' 
+  },
+  { 
+    name: 'Western Europe', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feruope%208%20%20best%20of%20euro.png?alt=media&token=17f0f144-a734-4955-aa12-38e5f150db2b', 
+    location: 'Amsterdam & Paris' 
+  },
+  { 
+    name: 'Nordic Europe', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feruope%209%20%20finland.png?alt=media&token=ae87ce8b-3954-4d74-a74a-c12e11298cd6', 
+    location: 'Scandinavia' 
+  },
+  { 
+    name: 'Iberian Peninsula', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feurope%2010%20uk.png?alt=media&token=cf597baf-4b76-4bef-b783-0381df90877a', 
+    location: 'Spain' 
+  },
+  { 
+    name: 'Central Europe', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feurope%2011%20london.png?alt=media&token=b78f566b-fb9a-4a33-8fa4-1bfb9325684b', 
+    location: 'Switzerland' 
+  }
 ];
 const TrendingCard = memo(({ name, image, location, onClick }) => (
   <div
@@ -36,8 +79,8 @@ export default function TrendingNow() {
     <section className="bg-black text-white py-6 sm:py-12">
       <div className="w-full px-4 sm:px-8 xl:px-16">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 flex flex-wrap items-center gap-2">
-          🔥 <span className="bg-gradient-to-r from-pink-300 to-yellow-400 bg-clip-text text-transparent font-bold animate-gradient bg-[length:200%_auto]">Trending</span>
-          <span className="text-white">Now</span>
+          🔥 <span className="bg-gradient-to-r from-pink-300 to-yellow-400 bg-clip-text text-transparent font-bold animate-gradient bg-[length:200%_auto]">Explore</span>
+          <span className="text-white">Europe</span>
         </h2>
       </div>
       <div className="w-full overflow-x-auto no-scrollbar pb-4">

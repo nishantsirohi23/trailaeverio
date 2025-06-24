@@ -243,10 +243,10 @@ const Services = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <div className="flex items-center gap-2 mb-4 sm:mb-0">
               <Plane className="w-6 h-6 text-purple-400" />
-              <span className="text-lg font-bold">Travel Agency</span>
+              <span className="text-lg font-bold">Aerovia Holidays</span>
             </div>
             <p className="text-gray-400 text-sm">
-              © 2025 Travel Agency. All rights reserved.
+              © 2025 Aerovia Holidays. All rights reserved.
             </p>
           </div>
         </div>

@@ -69,8 +69,8 @@ const Footer = () => {
           <ul className="space-y-2 text-sm text-gray-400">
             <li>Contact Form</li>
             <li>Our Offices</li>
-            <li>+91 99999 88888</li>
-            <li>support@travelagency.com</li>
+            <li>+91 9837501414</li>
+            <li>support@aeroviaholidays.com</li>
           </ul>
         </div>
       </div>

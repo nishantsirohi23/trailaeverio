@@ -2,13 +2,41 @@ import React, { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const trendingDestinations = [
-  { name: 'Europe', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.46%20PM.jpeg?alt=media&token=01483c8b-e298-4164-be58-26458dc081b6', location: 'Maldives' },
-  { name: 'Middle East', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.52.57%20PM.jpeg?alt=media&token=7899eaa4-6e4e-4dda-84c8-e61c876ea0eb', location: 'Europe' },
-  { name: 'Asia', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.13%20PM.jpeg?alt=media&token=b753b538-b75c-4b2a-a2d1-055185b3a81e', location: 'Dubai' },
-  { name: 'New Zealand', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.21%20PM.jpeg?alt=media&token=8d33f19d-8e25-4a9a-aa33-6f436d622f59', location: 'Bali' },
-  { name: 'Australia', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.27%20PM.jpeg?alt=media&token=267d76fd-2a12-47b4-aa24-285a56735c57', location: 'Thailand' },
-  { name: 'Africa', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.37%20PM.jpeg?alt=media&token=1ad52980-fc80-4d1f-bad8-c03e982bb0a7', location: 'Turkey' },
-  { name: 'India', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.58.29%20PM.jpeg?alt=media&token=7d479600-49fe-4575-9aac-e537fd2559a1', location: 'Andaman & Nicobar islands' },
+  { 
+    name: 'Island Getaways', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Findia%2Fandaman.png?alt=media&token=a5c44d25-7ad8-4b25-8014-fc65d514ef1b', 
+    location: 'Andaman Islands' 
+  },
+  { 
+    name: 'Beach Paradise', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Findia%2Fgoa.png?alt=media&token=c49e88ff-8360-456f-be7c-94456a47b15c', 
+    location: 'Goa' 
+  },
+  { 
+    name: 'Mountain Retreat', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Findia%2Fkashmir.png?alt=media&token=b70c3176-16f1-460a-9363-65dc7b846d7e', 
+    location: 'Kashmir' 
+  },
+  { 
+    name: 'Wellness Escape', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Findia%2Fkerala.png?alt=media&token=07488a0a-fb78-4721-971e-aabb2a389834', 
+    location: 'Kerala' 
+  },
+  { 
+    name: 'Desert Oasis', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Findia%2Fmount%20abu.png?alt=media&token=17f8105a-8d71-4482-9b8a-1ebf9a9da17a', 
+    location: 'Mount Abu' 
+  },
+  { 
+    name: 'Hill Stations', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Findia%2Fnotheast.png?alt=media&token=a0495c9a-bf9a-43fd-acfe-288b6a726882', 
+    location: 'Coorg & Ooty' 
+  },
+  { 
+    name: 'Cultural India', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Findia%2Fkashmir.png?alt=media&token=b70c3176-16f1-460a-9363-65dc7b846d7e', 
+    location: 'Mysore' 
+  }
 ];
 
 // Memoized destination card component

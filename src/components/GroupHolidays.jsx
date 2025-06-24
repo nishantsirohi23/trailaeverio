@@ -2,13 +2,41 @@ import React, { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const trendingDestinations = [
-  { name: 'Europe', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.46%20PM.jpeg?alt=media&token=01483c8b-e298-4164-be58-26458dc081b6', location: 'Maldives' },
-  { name: 'Middle East', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.52.57%20PM.jpeg?alt=media&token=7899eaa4-6e4e-4dda-84c8-e61c876ea0eb', location: 'Europe' },
-  { name: 'Asia', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.13%20PM.jpeg?alt=media&token=b753b538-b75c-4b2a-a2d1-055185b3a81e', location: 'Dubai' },
-  { name: 'New Zealand', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.21%20PM.jpeg?alt=media&token=8d33f19d-8e25-4a9a-aa33-6f436d622f59', location: 'Bali' },
-  { name: 'Australia', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.27%20PM.jpeg?alt=media&token=267d76fd-2a12-47b4-aa24-285a56735c57', location: 'Thailand' },
-  { name: 'Africa', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.53.37%20PM.jpeg?alt=media&token=1ad52980-fc80-4d1f-bad8-c03e982bb0a7', location: 'Turkey' },
-  { name: 'India', image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fdestinations%2FWhatsApp%20Image%202025-06-02%20at%2010.58.29%20PM.jpeg?alt=media&token=7d479600-49fe-4575-9aac-e537fd2559a1', location: 'Andaman & Nicobar islands' },
+  { 
+    name: 'Australia', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Faustralia%2Faus%201%20(12%20nov).png?alt=media&token=0658bda4-53a1-48c3-adaa-27d8082122e8', 
+    location: 'Sydney & Outback' 
+  },
+  { 
+    name: 'New Zealand', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fnewzealand%2Fnew%20zealand%20(16%20july).png?alt=media&token=87ac9fae-e123-49f6-9e0a-c4787fd0b434', 
+    location: 'North & South Islands' 
+  },
+  { 
+    name: 'Southern Africa', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fafrica%2Fsouth%20africa.png?alt=media&token=88128b78-3078-4a00-b2f9-2fa486b90594', 
+    location: 'South Africa' 
+  },
+  { 
+    name: 'East Africa', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fafrica%2Ftanzania%20(ms%20bhvya.png?alt=media&token=f3fc47ea-3a30-4274-95c7-1f6e2ed1f338', 
+    location: 'Tanzania Safari' 
+  },
+  { 
+    name: 'North Africa', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fafrica%2Ftanzania%202%20(%2006%20sept).png?alt=media&token=5f484617-de65-4410-8333-cf998092ada9', 
+    location: 'Egypt' 
+  },
+  { 
+    name: 'Arabian Gulf', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fmiddleeasy%2Fdubai.png?alt=media&token=bbe14937-fcc3-4d0b-9f08-d6e68cae1bcb', 
+    location: 'Dubai' 
+  },
+  { 
+    name: 'Middle East', 
+    image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fmiddleeasy%2Fdubai%202.png?alt=media&token=7b237410-1f68-4da5-be66-94d283fc88e1', 
+    location: 'Turkey' 
+  }
 ];
 
 // Memoized card component
@@ -42,7 +70,7 @@ export default function GroupHolidays() {
     <section className="bg-black text-white py-6 sm:py-12">
       <div className="w-full px-4 sm:px-8 xl:px-16">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 flex flex-wrap items-center gap-2">
-          🧑‍🤝‍🧑 <span className="text-white">Group</span>
+          🧑‍🤝‍🧑 <span className="text-white">International</span>
           <span className="bg-gradient-to-r from-red-400 to-green-400 bg-clip-text text-transparent font-bold animate-gradient bg-[length:200%_auto]">
             Holidays
           </span>

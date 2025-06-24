@@ -1,11 +1,11 @@
 import React from 'react';
 
 const images = [
-  "https://images.unsplash.com/photo-1549880338-65ddcdfd017b",
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+  "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2F_europe%204%20(%2016%20dec).png?alt=media&token=bbd9201b-3c37-43a2-a9f4-2c4a80521b21",
+  "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fasia%2Fbhutan.png?alt=media&token=5946f6a6-33bb-437c-a5b8-2b27759b4963",
   "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/20250601_1605_Mountain%20Adventure%20with%20Aerovia_simple_compose_01jwngxd0bevnatrdfhr8mnjy1.png?alt=media&token=20e9e9cb-e735-4201-a1b5-bfe5de279c1a",
-  "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6",
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+  "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Findia%2Fmount%20abu.png?alt=media&token=17f8105a-8d71-4482-9b8a-1ebf9a9da17a",
+  "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fmiddleeasy%2Fdubai.png?alt=media&token=bbe14937-fcc3-4d0b-9f08-d6e68cae1bcb",
 ];
 
 function PhotoGallery() {
@@ -15,8 +15,8 @@ function PhotoGallery() {
         <p className="text-white uppercase text-sm tracking-wide mb-2">Photo Gallery</p>
         <h2 className="text-purple-700 text-3xl sm:text-4xl font-extrabold mb-4">Photos from Travellers</h2>
         <p className="text-zinc-400 text-sm sm:text-base">
-          Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. 
-          Vestibulum cumque laudantium. Sit ornare mollitia tenetur, aptent.
+        Safari sunrises in Tanzania: Where nature paints the sky in fire and the wild whispers your name
+        Swiss Alps from a traveler’s eyes – chocolate-box villages under blankets of snow
         </p>
       </div>
 

@@ -41,25 +41,25 @@ const AeroviaAboutUs = () => {
 
   const team = [
     { 
-      name: 'Kamal JIJU', 
+      name: 'Kamal Tomar', 
       role: 'Founder & CEO', 
       bio: 'Visionary leader with 20+ years in luxury travel',
       gradient: 'from-pink-400 to-rose-500'
     },
     { 
-      name: 'Ashi DIDI', 
+      name: 'Poornima Silote', 
       role: 'Travel Director', 
       bio: 'Expert in crafting bespoke travel experiences',
       gradient: 'from-purple-400 to-pink-500'
     },
     { 
-      name: 'Poornima', 
+      name: 'Saurabh Singh', 
       role: 'Experience Designer', 
       bio: 'Creative mind behind our unique journeys',
       gradient: 'from-rose-400 to-pink-600'
     },
     { 
-      name: 'Honey', 
+      name: 'Anjali Verma', 
       role: 'Adventure Specialist', 
       bio: 'Explorer of hidden gems and untold stories',
       gradient: 'from-pink-300 to-rose-400'
@@ -204,7 +204,7 @@ const AeroviaAboutUs = () => {
           <div className="relative inline-block mb-12">
           <div className="p-8 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-rose-500/20 rounded-3xl backdrop-blur-xl border border-pink-500/30 relative">
             <img
-                src="/src/assets/logo.png" // Replace this with your actual image path
+                src="https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Flogo.png?alt=media&token=39aec30d-2fb4-4ff4-ae38-7bc73624278d" // Replace this with your actual image path
                 alt="Globe"
                 className="w-24 h-24 mx-auto"
                 style={{ animationDuration: '20s' }}
