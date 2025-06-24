@@ -23,7 +23,7 @@ const Home = () => {
       <ExploreIndia />
       <TrendingNow />
       <GroupHolidays />
-      <UserReviews />
+      <UserReviews id="684b1678743424e7fb1074e7"/>
       <QueryForm />
       <PhotoGallery />
       <TripCategories />

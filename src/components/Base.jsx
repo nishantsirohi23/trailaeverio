@@ -57,7 +57,7 @@ function Base() {
           transition={{ duration: 0.8 }}
         >
           Discover Your <span className="text-purple-500">Dream</span>
-          <br /> Adventure with <span className="text-purple-500">Aeverio Holidays</span>
+          <br /> Adventure with <span className="text-purple-500">Aerovia Holidays</span>
         </motion.h1>
 
         <AnimatePresence mode="wait">

@@ -204,7 +204,7 @@ const AeroviaAboutUs = () => {
           <div className="relative inline-block mb-12">
           <div className="p-8 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-rose-500/20 rounded-3xl backdrop-blur-xl border border-pink-500/30 relative">
             <img
-                src="https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/logo.png?alt=media&token=bae838ca-e626-4bf8-8e14-34a96e7120f2" // Replace this with your actual image path
+                src="/src/assets/logo.png" // Replace this with your actual image path
                 alt="Globe"
                 className="w-24 h-24 mx-auto"
                 style={{ animationDuration: '20s' }}

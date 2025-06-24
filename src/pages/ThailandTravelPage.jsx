@@ -6,7 +6,14 @@ import {
   CheckCircle, X, Clock
 } from 'lucide-react';
 import ReviewCard from '@/components/ReviewCard';
-
+import UserReviews from '@/components/UserReview';
+const images = [
+  'https://images.unsplash.com/photo-1725145722645-c4f569b49b6d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://plus.unsplash.com/premium_photo-1675431435428-33c25f818d67?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D',
+  'https://images.unsplash.com/photo-1663588767606-c91626c4b7f6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D',
+  'https://plus.unsplash.com/premium_photo-1734629912226-ef74382aa901?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE2fHx8ZW58MHx8fHx8',
+  'https://images.unsplash.com/photo-1659859910985-a3a0a14fa11b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIxfHx8ZW58MHx8fHx8',
+];
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -64,20 +71,7 @@ const ThailandTourPage = () => {
     fetchData();
   }, [title]);
 
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const reviewsUrl = 'https://api.perpenny.in/api/reviews/684b1678743424e7fb1074e7';
-        const response = await axios.get(reviewsUrl);
-        setReviews(response.data.data || []);
-      } catch (err) {
-        console.error('Error fetching reviews:', err);
-        setReviews([]);
-      }
-    };
-
-    fetchReviews();
-  }, []);
+  
 
   const iconMap = {
     plane: <Plane className="w-5 h-5" />,
@@ -211,7 +205,7 @@ const ThailandTourPage = () => {
               <img
                 src={data.imageUrls[selectedImage]}
                 alt="Main Preview"
-                className="w-full max-w-4xl h-[400px] object-cover rounded-xl mb-4"
+                className="w-full max-w-4xl h-[500px] object-cover rounded-xl mb-4"
               />
               <div className="flex gap-4 justify-center flex-wrap">
                 {data.imageUrls.map((url, i) => (
@@ -345,29 +339,10 @@ const ThailandTourPage = () => {
             </div>
           </div>
         </section>
+            <UserReviews id={title}/>
+            
 
-        <section className="px-4 py-12 max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-purple-300 mb-8">Customer Reviews</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {reviews.length > 0 ? (
-              reviews.map((review) => (
-                <ReviewCard
-                  key={review._id}
-                  username={review.name}
-                  rating={review.starRating}
-                  location={review.destination}
-                  title={`Review by ${review.name}`}
-                  review={review.review}
-                  profileUrl=""
-                />
-              ))
-            ) : (
-              <div className="col-span-full text-center text-gray-400">
-                No reviews available yet. Be the first to review!
-              </div>
-            )}
-          </div>
-        </section>
+       
 
         <section className="px-4 py-12 max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Explore?</h2>

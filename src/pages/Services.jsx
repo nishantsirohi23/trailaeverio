@@ -127,7 +127,7 @@ const Services = () => {
             <div className="flex justify-center mb-6">
             <div className="p-1 bg-purple-600/20 rounded-full backdrop-blur-sm border border-purple-600/30">
                 <img
-                    src="https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/logo.png?alt=media&token=bae838ca-e626-4bf8-8e14-34a96e7120f2" // Replace with your actual logo path
+                    src="https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Flogo.png?alt=media&token=39aec30d-2fb4-4ff4-ae38-7bc73624278d" // Replace with your actual logo path
                     alt="Logo"
                     className="w-16 h-16 object-contain"
                 />
