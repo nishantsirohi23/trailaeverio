@@ -195,7 +195,6 @@ const ThailandTourPage = () => {
       <div className="bg-black text-white min-h-screen pb-20">
         <header className="text-center py-12 px-4">
           <h1 className="text-5xl font-bold text-purple-400 mb-4">{data?.title || 'Bali Tropical Escape'}</h1>
-          <p className="italic text-purple-300 mb-6 text-lg">"Love is in the air, and so is the scent of Thai food!"</p>
           <p className="text-gray-300 max-w-3xl mx-auto">{data?.tagline || 'Unwind in paradise with beach bliss, island adventure, and Balinese culture.'}</p>
         </header>
 

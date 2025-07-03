@@ -13,10 +13,10 @@ const getIconForTag = (tag) => {
   if (['resort', 'tour package', 'cabin', 'loft', 'adventure'].some(word => lowerTag.includes(word))) {
     return <Home className="w-4 h-4 text-indigo-400" />;
   }
-  return <Tag className="w-4 h-4 text-indigo-400" />;
+  return <Home className="w-4 h-4 text-indigo-400" />;
 };
 
-const DestinationTag = ({ imageSrc, name, price, details, tags = [] }) => {
+const DestinationTag = ({ imageSrc, name, price, details, tags, destid = [] }) => {
   const navigate = useNavigate();
 
   return (
@@ -56,9 +56,9 @@ const DestinationTag = ({ imageSrc, name, price, details, tags = [] }) => {
           </div>
 
           <div className="flex justify-between items-center pt-2">
-            <p className="text-lg font-semibold">₹{price.toLocaleString()}</p>
+            <p className="text-lg font-semibold">{price.toLocaleString()}</p>
             <Button
-              onClick={() => navigate(`/package/${encodeURIComponent(name)}`)}
+              onClick={() => navigate(`/exp/${encodeURIComponent(destid)}`)}
               className="bg-indigo-600 hover:bg-indigo-700 text-sm px-4 py-2 rounded-xl"
             >
               View Package Details

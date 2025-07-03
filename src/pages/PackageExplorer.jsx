@@ -84,13 +84,13 @@ const continentData = {
   Europe: {
     countries: [
       { 
-        duration: '5D / 6N',tagid: '684c40b428ea76669318c8d5', name:  'Eastern Europe Highlights', 
+        duration: '7D / 6N',tagid: '684c40b428ea76669318c8d5', name:  'Eastern Europe Highlights', 
         image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2F_europe%203%20(%208%20march).png?alt=media&token=d3626380-50fe-433d-9a31-af50dbbf65e3',
         tags: ['Heritage', 'Culture', 'Architecture'],
         details: 'Classic European journey through historic cities, magnificent cathedrals and timeless art collections showcasing centuries of civilization and culture.'
       },
       { 
-        duration: '5D / 6N',tagid: '684c40bb28ea76669318c8ec', name:  'France, Switzerland & Italy Highlights', 
+        duration: '16D / 15N',tagid: '684c40bb28ea76669318c8ec', name:  'France, Switzerland & Italy Highlights', 
         image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2F_europe%204%20(%2016%20dec).png?alt=media&token=bbd9201b-3c37-43a2-a9f4-2c4a80521b21',
         tags: ['Winter', 'Culture', 'Romance'],
         details: 'Magical winter wonderland through European capitals with Christmas markets, snow-capped landscapes and cozy cultural experiences perfect for romance.'
@@ -102,13 +102,13 @@ const continentData = {
         details: 'City of Love meets Alpine paradise combining Parisian elegance with Swiss mountain majesty for ultimate romantic European escape.'
       },
       { 
-        duration: '5D / 6N',tagid: '684c40ca28ea76669318c943', name:  'Greece Highlights: Athens, Mykonos & Santorini', 
+        duration: '7D / 6N',tagid: '684c40ca28ea76669318c943', name:  'Greece Highlights: Athens, Mykonos & Santorini', 
         image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feastern%20europe.png?alt=media&token=c885f7f3-1db0-4789-ae00-7e52c7b02207',
         tags: ['Heritage', 'Culture', 'History'],
         details: 'Eastern European treasures with medieval castles, baroque architecture and rich cultural heritage revealing Europe\'s hidden gems and stories.'
       },
       { 
-        duration: '5D / 6N',tagid: '684c40d228ea76669318c95e', name:  'Essence of Italy Tour', 
+        duration: '7D / 6N',tagid: '684c40d228ea76669318c95e', name:  'Essence of Italy Tour', 
         image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feruope%206%20japan%20korea.png?alt=media&token=71a68640-305e-4dad-94c9-a2a0d9601edd',
         tags: ['Modern', 'Culture', 'Technology'],
         details: 'East meets West adventure combining Japanese precision with Korean innovation showcasing Asia\'s technological marvels and cultural depth.'
@@ -126,13 +126,13 @@ const continentData = {
         details: 'Best of Europe showcase featuring iconic landmarks, world-class museums and architectural marvels spanning centuries of European excellence.'
       },
       { 
-        duration: '5D / 6N',tagid: '684c40e828ea76669318c9a1', name:  'Scandinavian Wonders: Norway, Sweden & Finland', 
+        duration: '15D / 14N',tagid: '684c40e828ea76669318c9a1', name:  'Scandinavian Wonders: Norway, Sweden & Finland', 
         image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feruope%209%20%20finland.png?alt=media&token=ae87ce8b-3954-4d74-a74a-c12e11298cd6',
         tags: ['Nature', 'Adventure', 'Aurora'],
         details: 'Land of thousand lakes with pristine wilderness, Northern Lights and sauna culture offering pure Nordic adventure and natural serenity.'
       },
       { 
-        duration: '5D / 6N',tagid: '684c40ef28ea76669318c9ab', name:  'Spain Highlights', 
+        duration: '8D / 7N',tagid: '684c40ef28ea76669318c9ab', name:  'Spain Highlights', 
         image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feurope%2010%20uk.png?alt=media&token=cf597baf-4b76-4bef-b783-0381df90877a',
         tags: ['Heritage', 'Culture', 'Royal'],
         details: 'British Isles with royal palaces, countryside charm and rich literary heritage showcasing centuries of monarchy and cultural traditions.'

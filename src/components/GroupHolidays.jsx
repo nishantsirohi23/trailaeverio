@@ -63,7 +63,7 @@ export default function GroupHolidays() {
   const navigate = useNavigate();
 
   const handleCardClick = (name) => {
-    navigate(`/package/${encodeURIComponent(name)}`);
+    navigate(`/explorer/Australia`);
   };
 
   return (

@@ -91,7 +91,7 @@ export default function TrendingNow() {
               name={item.name}
               image={item.image}
               location={item.location}
-              onClick={() => navigate(`/package/${encodeURIComponent(item.name)}`)}
+              onClick={() => navigate(`/explorer/Europe`)}
             />
           ))}
         </div>
