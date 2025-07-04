@@ -44,8 +44,8 @@ const destinations = [
     imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fkashmir%203.png?alt=media&token=41f9c3d8-f8ad-4d57-94ab-c6d85635f042',
     name: 'Kashmir Delight',
     price: "6D/5N",
-    details: 'Explore the breathtaking beauty of Srinagar, Pahalgam, Gulmarg, and traditional experiences',
-    tags: ['Srinagar', 'Gulmarg', 'Sonmarg'],
+    details: 'Explore the breathtaking beauty of Srinagar and traditional experiences',
+    tags: ['Srinagar', 'Gulmarg & Sonmarg', 'Pahalgam '],
     destid: '684c3fe128ea76669318c67e'
 
   },
