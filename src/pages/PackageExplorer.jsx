@@ -197,7 +197,7 @@ const continentData = {
       },
       { 
         duration: '6D / 5N', tagid: '684c402028ea76669318c6e8', name: 'Kyrgyzstan Adventure & Culture', 
-        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fasia%2Fsingapore.png?alt=media&token=4785b679-ed39-4156-a120-c20a57413df7',
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2FKyrgyzstan%202.png?alt=media&token=ca39be8a-b260-4aa1-b0d3-e3ac22c584a5',
         tags: ['Bishkek', 'Karakol', 'Osh'],
         details: 'Land of majestic mountains and nomadic culture offering breathtaking alpine landscapes, yurt stays, and the famous Issyk-Kul Lake.'
       },
