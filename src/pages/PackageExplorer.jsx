@@ -1,6 +1,6 @@
 import PackageCard from '@/components/PackageCard';
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 
 const cn = (...classes) => classes.filter(Boolean).join(' ');
 
@@ -33,16 +33,16 @@ const continentData = {
       },
       { 
         duration: '8D / 7N', tagid: '684c402828ea76669318c704', name: 'Ladakh Experience', 
-        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Findia%2Fmount%20abu.png?alt=media&token=17f8105a-8d71-4482-9b8a-1ebf9a9da17a',
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fladakh%201%20(1).png?alt=media&token=a07a2c32-b9ea-4a37-bc31-27a22f94d69a',
         tags: ['Leh', 'Nubra Valley', 'Pangong Lake'],
-        details: 'Oasis of Rajasthan with Dilwara temples, cool climate and stunning sunsets offering spiritual retreat in desert state\'s only hill station.'
+        details: 'Land of high passes with breathtaking landscapes, Buddhist monasteries and adventurous road trips through the mighty Himalayas.'
       },
       { 
         duration: '6D / 5N', tagid: '684b16e8743424e7fb107520', name: 'Coorg, Ooty & Mysore Delight', 
-        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Findia%2Fnotheast.png?alt=media&token=a0495c9a-bf9a-43fd-acfe-288b6a726882',
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fcoorg%201%20(1).png?alt=media&token=e6a09609-a2f9-4d22-ac12-42b461fef7b7',
         tags: ['Coorg', 'Ooty', 'Mysore'],
-        details: 'Seven Sisters with pristine landscapes, tribal cultures and untouched wilderness offering authentic experiences in India\'s hidden paradise.'
-      },
+        details: 'Scenic hill stations with coffee plantations, colonial charm and royal heritage offering refreshing escapes in South India\'s Western Ghats.'
+      }
     ]
   },
   Asia: {
@@ -73,9 +73,9 @@ const continentData = {
       },
       { 
         duration: '5D / 4N', tagid: '684c404828ea76669318c76d', name: 'Nepal: Kathmandu & Pokhara Escape', 
-        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fasia%2Fmaldives.png?alt=media&token=985aec8a-2c85-4475-ab46-52827cd89acd',
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fnepal%20%201.png?alt=media&token=27ade3f0-23ae-4779-981f-f8fa4ab2051a',
         tags: ['Kathmandu', 'Pokhara', 'Nagarkot'],
-        details: 'Paradise on earth with crystal-clear waters, overwater villas and pristine coral reefs perfect for romantic getaways and luxury experiences.'
+        details: 'Himalayan kingdom with ancient temples, breathtaking mountain views and adventure activities in the shadow of the world\'s highest peaks.'
       },
       { 
         duration: '7D / 6N', tagid: '684c403828ea76669318c73a', name: 'Mauritius Tropical Escape', 
@@ -95,18 +95,7 @@ const continentData = {
         tags: ['Colombo', 'Kandy', 'Galle'],
         details: 'Pearl of the Indian Ocean with ancient temples, lush tea plantations and wildlife safaris offering incredible diversity in compact wonder.'
       },
-      { 
-        duration: '6D / 5N', tagid: '684c402028ea76669318c6e8', name: 'Kyrgyzstan Adventure & Culture', 
-        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fasia%2Fsingapore.png?alt=media&token=4785b679-ed39-4156-a120-c20a57413df7',
-        tags: ['Bishkek', 'Karakol', 'Osh'],
-        details: 'Lion City with futuristic architecture, world-renowned cuisine and seamless blend of tradition and innovation in Southeast Asia\'s gateway.'
-      },
-      { 
-        duration: '5D / 4N', tagid: '684c3ff428ea76669318c69b', name: 'Kazakhstan Highlights', 
-        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fasia%2Ftaiwan.png?alt=media&token=881f9a3e-6599-4db2-a856-bb63187c9ae0',
-        tags: ['Almaty', 'Nur-Sultan', 'Shymkent'],
-        details: 'Formosa island with dramatic landscapes, night markets and preserved Chinese culture creating authentic Asian experience with modern comforts.'
-      },
+      
       { 
         duration: '5D / 4N', tagid: '684c409328ea76669318c86e', name: 'Thailand – Pattaya & Bangkok Highlights', 
         image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fasia%2Fthailand.png?alt=media&token=314b3cfa-b8e2-47ed-ae7c-eda1612cbb8c',
@@ -118,7 +107,7 @@ const continentData = {
         image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fasia%2Fvietnam.png?alt=media&token=7f037917-30ed-4dd4-8fe6-2ef7912aeffe',
         tags: ['Hanoi', 'Ho Chi Minh', 'Da Nang'],
         details: 'Hidden dragon with emerald rice terraces, bustling street life and rich history creating unforgettable journey through ancient traditions.'
-      },
+      }
     ]
   },
   Europe: {
@@ -149,13 +138,13 @@ const continentData = {
       },
       { 
         duration: '7D / 6N', tagid: '684c40d228ea76669318c95e', name: 'Essence of Italy Tour', 
-        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feruope%206%20japan%20korea.png?alt=media&token=71a68640-305e-4dad-94c9-a2a0d9601edd',
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fitaly%201.png?alt=media&token=b3a23355-0b35-4ed0-b107-e207beb27b87',
         tags: ['Rome', 'Florence', 'Venice'],
         details: 'East meets West adventure combining Japanese precision with Korean innovation showcasing Asia\'s technological marvels and cultural depth.'
       },
       { 
         duration: '5D / 4N', tagid: '684c40d828ea76669318c975', name: 'London Explorer', 
-        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feruope%207%20%20spain.png?alt=media&token=23ae963d-bb67-4658-908f-731e2f279cf9',
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Flondon%201%20(1).png?alt=media&token=1c9d4a81-fef5-4bca-a526-26d2ab2e74a0',
         tags: ['London', 'Cambridge', 'Oxford'],
         details: 'Spanish passion with flamenco rhythms, Mediterranean beaches and tapas culture creating vibrant celebration of life and artistic expression.'
       },
@@ -171,13 +160,13 @@ const continentData = {
         tags: ['Oslo', 'Stockholm', 'Helsinki'],
         details: 'Land of thousand lakes with pristine wilderness, Northern Lights and sauna culture offering pure Nordic adventure and natural serenity.'
       },
-     
       { 
         duration: '7D / 6N', tagid: '684c40f628ea76669318c9b0', name: 'Switzerland Alpine Highlights', 
-        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feurope%2011%20london.png?alt=media&token=b78f566b-fb9a-4a33-8fa4-1bfb9325684b',
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fswitzerland%201.png?alt=media&token=60381f87-5cdf-40cf-9e3b-5b38d8a7dd95',
         tags: ['Zurich', 'Lucerne', 'Interlaken'],
-        details: 'Capital of Great Britain with iconic landmarks, world-class theaters and royal pageantry creating quintessential British metropolitan experience.'
-      }
+        details: 'Alpine wonderland with snow-capped peaks, crystal-clear lakes and charming villages offering breathtaking scenery and outdoor adventures.'
+      },
+      
     ]
   },
   'Middle East': {
@@ -190,9 +179,33 @@ const continentData = {
       },
       { 
         duration: '6D / 5N', tagid: '684c40a328ea76669318c89b', name: 'Turkey Explorer', 
-        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fmiddleeasy%2Fdubai%202.png?alt=media&token=7b237410-1f68-4da5-be66-94d283fc88e1',
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fturkey%204.png?alt=media&token=24dd8a51-288a-48a0-ab0b-b3fc0418f29a',
         tags: ['Istanbul', 'Cappadocia', 'Antalya'],
-        details: 'Emirates jewel with desert safaris, architectural marvels and Arabian hospitality offering perfect blend of tradition and ultramodernity.'
+        details: 'Where East meets West, offering historic wonders like Hagia Sophia, surreal landscapes of Cappadocia, and stunning Mediterranean beaches.'
+      },
+      { 
+        duration: '7D / 6N', tagid: '684c406528ea76669318c7c9', name: 'Russia – Moscow & St. Petersburg Highlights', 
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Frussia1.png?alt=media&token=0f9a282e-5815-4b8d-88e6-b043c81cd990',
+        tags: ['Moscow', 'St. Petersburg', 'Suzdal'],
+        details: 'Imperial Russia revealed through Moscow\'s Red Square and Kremlin, St. Petersburg\'s Hermitage Museum, and the golden-domed cathedrals.'
+      },
+      { 
+        duration: '5D / 4N', tagid: '684c3fc228ea76669318c652', name: 'Georgia – Culture & Nature Highlights', 
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fgeorgia%201.png?alt=media&token=8beba0ce-ed07-4ce7-b283-6399e2f99c1b',
+        tags: ['Tbilisi', 'Gudauri', 'Batumi'],
+        details: 'Where Europe meets Asia, featuring Tbilisi\'s old town, Caucasus mountain villages, and the Black Sea coast with its unique blend of cultures.'
+      },
+      { 
+        duration: '6D / 5N', tagid: '684c402028ea76669318c6e8', name: 'Kyrgyzstan Adventure & Culture', 
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fasia%2Fsingapore.png?alt=media&token=4785b679-ed39-4156-a120-c20a57413df7',
+        tags: ['Bishkek', 'Karakol', 'Osh'],
+        details: 'Land of majestic mountains and nomadic culture offering breathtaking alpine landscapes, yurt stays, and the famous Issyk-Kul Lake.'
+      },
+      { 
+        duration: '5D / 4N', tagid: '684c3ff428ea76669318c69b', name: 'Kazakhstan Highlights', 
+        image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fkazakhstan%204%20(1).png?alt=media&token=683a4ae1-90c7-4d0b-b641-e70ab3f2d38b',
+        tags: ['Almaty', 'Nur-Sultan', 'Shymkent'],
+        details: 'Vast steppes meet modern cities in this Central Asian gem, featuring the futuristic capital Nur-Sultan, Charyn Canyon, and rich nomadic heritage.'
       },
     ]
   },
@@ -234,16 +247,18 @@ const continentData = {
         duration: '7D / N', tagid: '684b1e515c674257ff69dc68', name: 'Egypt Explorer: Cairo, Luxor & Aswan', 
         image: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fafrica%2Ftanzania%202%20(%2006%20sept).png?alt=media&token=5f484617-de65-4410-8333-cf998092ada9',
         tags: ['Cairo', 'Luxor', 'Aswan'],
-        details: 'Spice Island adventure with Stone Town heritage, pristine beaches and aromatic spice tours creating exotic East African cultural experience.'
-      }
+        details: 'Ancient civilization along the Nile featuring the Pyramids of Giza, Valley of the Kings, and magnificent temples showcasing pharaonic grandeur.'
+      },
+      
     ]
   }
 };
 
 
 const ContinentalPackages = () => {
-  const { continent } = useParams();
+  const { continent: continentParam } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [selectedContinent, setSelectedContinent] = useState('India');
   const [displayedCountries, setDisplayedCountries] = useState([]);
@@ -253,19 +268,20 @@ const ContinentalPackages = () => {
     window.scrollTo(0, 0);
     
     const validContinents = Object.keys(continentData);
-    const initialContinent = validContinents.includes(continent) ? continent : 'India';
+    
+    // First check for state from navigation, then URL param, then default to India
+    const initialContinent = location.state?.fromContinent || 
+                           (validContinents.includes(continentParam) ? continentParam : 
+                           'India');
     
     setSelectedContinent(initialContinent);
     loadContinentData(initialContinent);
-  }, []);
-
-  // Handle URL parameter changes
-  useEffect(() => {
-    const validContinents = Object.keys(continentData);
-    if (validContinents.includes(continent) && continent !== selectedContinent) {
-      loadContinentData(continent);
+    
+    // Clean up any navigation state to prevent it from being reused
+    if (location.state?.fromContinent) {
+      navigate(location.pathname, { replace: true, state: {} });
     }
-  }, [continent]);
+  }, [continentParam, location.state, location.pathname, navigate]);
 
   // Load data for a continent with image preloading
   const loadContinentData = (continent) => {
@@ -282,7 +298,7 @@ const ContinentalPackages = () => {
           const img = new Image();
           img.src = country.image;
           img.onload = () => resolve();
-          img.onerror = () => resolve(); // Resolve even if image fails to load
+          img.onerror = () => resolve();
         });
       });
       
@@ -295,8 +311,11 @@ const ContinentalPackages = () => {
     });
   };
 
-  const handlePackageClick = (countryName) => {
-    navigate(`/exp/${countryName}`);
+  const handlePackageClick = (countryTagId) => {
+    // Store the current continent in navigation state
+    navigate(`/exp/${countryTagId}`, { 
+      state: { fromContinent: selectedContinent } 
+    });
   };
 
   return (
@@ -311,7 +330,10 @@ const ContinentalPackages = () => {
           {Object.keys(continentData).map((cont) => (
             <button
               key={cont}
-              onClick={() => loadContinentData(cont)}
+              onClick={() => {
+                navigate(`/explorer/${cont}`, { replace: true });
+                loadContinentData(cont);
+              }}
               disabled={isLoading}
               className={cn(
                 'px-4 py-2 rounded-full border border-white/20 text-sm transition-all duration-300',
@@ -331,10 +353,7 @@ const ContinentalPackages = () => {
           {isLoading ? (
             // Skeleton loading state
             Array.from({ length: 6 }).map((_, idx) => (
-              <div 
-                key={`skeleton-${idx}`} 
-                className="w-full animate-pulse"
-              >
+              <div key={`skeleton-${idx}`} className="w-full animate-pulse">
                 <div className="bg-gray-800 rounded-xl overflow-hidden h-full">
                   <div className="h-48 bg-gray-700 w-full"></div>
                   <div className="p-4">
@@ -356,18 +375,18 @@ const ContinentalPackages = () => {
             // Loaded state
             displayedCountries.map((country, idx) => (
               <div 
-  key={`${selectedContinent}-${idx}`}
-  onClick={() => handlePackageClick(country.tagid)}
-  className="w-full cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
->
-  <PackageCard
-    imageSrc={country.image}
-    name={country.name}
-    details={country.details}
-    duration={country.duration}
-    tags={country.tags || []}
-  />
-</div>
+                key={`${selectedContinent}-${idx}`}
+                onClick={() => handlePackageClick(country.tagid)}
+                className="w-full cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
+              >
+                <PackageCard
+                  imageSrc={country.image}
+                  name={country.name}
+                  details={country.details}
+                  duration={country.duration}
+                  tags={country.tags || []}
+                />
+              </div>
             ))
           )}
         </div>
