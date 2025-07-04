@@ -31,7 +31,7 @@ export default function FormSuccessPage() {
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-pink-500 transition-all duration-300 hover:transform hover:scale-105">
             <div className="flex flex-col items-center">
               <div className="bg-pink-500 bg-opacity-20 p-4 rounded-full mb-4">
-                <Phone className="w-8 h-8 text-pink-500" />
+                <Phone className="w-8 h-8 text-white" /> {/* White-colored icon */}
               </div>
               <h3 className="text-pink-500 font-semibold text-lg mb-2">Call Us</h3>
               <a 
@@ -47,7 +47,7 @@ export default function FormSuccessPage() {
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-pink-500 transition-all duration-300 hover:transform hover:scale-105">
             <div className="flex flex-col items-center">
               <div className="bg-pink-500 bg-opacity-20 p-4 rounded-full mb-4">
-                <MessageCircle className="w-8 h-8 text-pink-500" />
+                <MessageCircle className="w-8 h-8 text-white" /> {/* White-colored icon */}
               </div>
               <h3 className="text-pink-500 font-semibold text-lg mb-2">WhatsApp</h3>
               <a 
@@ -65,7 +65,7 @@ export default function FormSuccessPage() {
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-pink-500 transition-all duration-300 hover:transform hover:scale-105">
             <div className="flex flex-col items-center">
               <div className="bg-pink-500 bg-opacity-20 p-4 rounded-full mb-4">
-                <Mail className="w-8 h-8 text-pink-500" />
+                <Mail className="w-8 h-8 text-white" /> {/* White-colored icon */}
               </div>
               <h3 className="text-pink-500 font-semibold text-lg mb-2">Email Us</h3>
               <a 

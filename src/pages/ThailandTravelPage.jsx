@@ -383,7 +383,7 @@ const ThailandTourPage = () => {
             </div>
           </div>
         </section>
-            <UserReviews id={title}/>
+        <UserReviews id={title}/>
             
 
        

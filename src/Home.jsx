@@ -19,8 +19,9 @@ const Home = () => {
     <div className="bg-gray-950">
       <Base />
       <PopularDestinations />
-      <InternationalPackages />
       <ExploreIndia />
+      <InternationalPackages />
+      
       <TrendingNow />
       <GroupHolidays />
       <UserReviews id="684b1678743424e7fb1074e7"/>
