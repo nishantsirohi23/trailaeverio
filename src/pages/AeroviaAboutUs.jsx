@@ -41,7 +41,7 @@ const AeroviaAboutUs = () => {
 
   const team = [
     { 
-      name: 'Kamal Tomar', 
+      name: 'Ashwani Panwar', 
       role: 'Founder & CEO', 
       bio: 'Visionary leader with 20+ years in luxury travel',
       gradient: 'from-pink-400 to-rose-500'

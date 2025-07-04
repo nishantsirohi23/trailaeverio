@@ -5,59 +5,48 @@ import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const destinations = [
-  {
-    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fgoa%202.png?alt=media&token=6ebf17c6-ad0a-4d16-9794-7a1ec99c3185',
-    name: 'Goa Beach & Heritage Escape',
-    price: '5D/4N',
-    details: 'Discover the perfect blend of sun, sand, and heritage in North and South Goa!',
-    tags: ['Baga Beach', 'Calangute Beach', 'Dudhsagar Waterfalls'],
-    destid: '684c3fb228ea76669318c63e'
+  
+  { 
+    price: '7D / 6N', destid: '684c40f628ea76669318c9b0', name: 'Switzerland Alpine Highlights', 
+    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feurope%2011%20london.png?alt=media&token=b78f566b-fb9a-4a33-8fa4-1bfb9325684b',
+    tags: ['Zurich', 'Lucerne', 'Interlaken'],
+    details: 'Capital of Great Britain with iconic landmarks, world-class theaters and royal pageantry creating quintessential British metropolitan experience.'
   },
-  {
-    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fthailand%20(%20phuket%20krabi%20)%20-%201.png?alt=media&token=ebc43b22-af39-41a5-9385-655638f4cc30',
-    name: 'Thailand – Krabi & Phuket Explorer',
-    price: "5D/4N",
-    details: 'Sun-kissed islands, cultural wonders, and turquoise adventures',
-    tags: ['Phra Nang Cave Beach', 'Phantasea Cultural', 'Phi Phi Islands'],
-    destid: '684c409a28ea76669318c885'
 
+  { 
+    price: '6D / 5N', destid: '684c401828ea76669318c6cd', name: "Kerala – God's Own Country", 
+    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Findia%2Fkerala.png?alt=media&token=07488a0a-fb78-4721-971e-aabb2a389834',
+    tags: ['Kochi', 'Munnar', 'Alleppey'],
+    details: 'God\'s Own Country with tranquil backwaters, Ayurvedic treatments and spice plantations creating ultimate wellness and natural rejuvenation experience.'
   },
-  {
-    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feastern%20europe.png?alt=media&token=c885f7f3-1db0-4789-ae00-7e52c7b02207',
-    name: 'Greece Highlights: Athens, Mykonos & Santorini',
-    price: "7D/6N",
-    details: 'A spellbinding journey through ancient wonders, sun-soaked beaches, and iconic sunsets.',
-    tags: ['Acropolis', 'Parthenon', 'Mykonos'],
-    destid: '684c40ca28ea76669318c943'
+  
+  { 
+    price: '7D / 6N', destid: '684c40ab28ea76669318c8b5', name: 'Vietnam Highlights', 
+    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fasia%2Fvietnam.png?alt=media&token=7f037917-30ed-4dd4-8fe6-2ef7912aeffe',
+    tags: ['Hanoi', 'Ho Chi Minh', 'Da Nang'],
 
+    details: 'Hidden dragon with emerald rice terraces, bustling street life and rich history creating unforgettable journey through ancient traditions.'
   },
-  {
-    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Feurope%2Feruope%206%20japan%20korea.png?alt=media&token=71a68640-305e-4dad-94c9-a2a0d9601edd',
-    name: 'Essence of Italy Tour',
-    price: "7D/6N",
-    details: 'A journey through timeless art, romantic canals, and Tuscan landscapes',
-    tags: ['Duomo', 'Uffizi Gallery', 'Ponte Vecchio'],
-    destid: '684c40d228ea76669318c95e'
+  { 
+    price: '6D / 5N', destid: '684b16b5743424e7fb107501', name: 'Bhutan – Kingdom of Happiness Tour', 
+    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fasia%2Fbhutan.png?alt=media&token=5946f6a6-33bb-437c-a5b8-2b27759b4963',
+    tags: ['Thimphu', 'Paro', 'Punakha'],
+    details: 'Last Shangri-La with majestic Himalayas, ancient monasteries and carbon-negative kingdom promoting gross national happiness over GDP.'
+  },
+  { 
+    price: '8D / 7N', destid: '684c408d28ea76669318c849', name: 'Tanzania Safari Adventure', 
+    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fafrica%2Ftanzania%20(ms%20bhvya.png?alt=media&token=f3fc47ea-3a30-4274-95c7-1f6e2ed1f338',
+    tags: ['Arusha', 'Zanzibar', 'Dar es Salaam'],
+    details: 'Serengeti paradise with Mount Kilimanjaro, Great Migration and pristine wildlife offering authentic African safari and mountaineering adventures.'
+  },
+  { 
+    price: '13D / 12N', destid: '684c405328ea76669318c782', name: 'New Zealand Wonders', 
+    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fnewzealand%2Fnew%20zealand%20(16%20july).png?alt=media&token=87ac9fae-e123-49f6-9e0a-c4787fd0b434',
+    tags: ['Auckland', 'Queenstown', 'Christchurch'],
+    details: 'Land of the long white cloud with breathtaking scenery, adventure sports and Maori culture offering ultimate nature and adrenaline experiences.'
+  },
 
-  },
-  {
-    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Fpackages3%2Fkashmir%203.png?alt=media&token=41f9c3d8-f8ad-4d57-94ab-c6d85635f042',
-    name: 'Kashmir Delight',
-    price: "6D/5N",
-    details: 'Explore the breathtaking beauty of Srinagar and traditional experiences',
-    tags: ['Srinagar', 'Gulmarg & Sonmarg', 'Pahalgam '],
-    destid: '684c3fe128ea76669318c67e'
-
-  },
-  {
-    imageSrc: 'https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/0aeverioholi%2Faustralia%2Faus%201%20(12%20nov).png?alt=media&token=0658bda4-53a1-48c3-adaa-27d8082122e8',
-    name: 'Australian Delight',
-    price: "10D/9N",
-    details: 'Experience iconic cities, stunning coastlines, and unforgettable wildlife across Australia',
-    tags: ['Warner Bros', 'Sydney Tower Eye', 'Featherdale Wildlife Park'],
-    destid: '684b1637743424e7fb1074bc'
-
-  },
+ 
 ];
 
 const getItemsPerSlide = (width) => {

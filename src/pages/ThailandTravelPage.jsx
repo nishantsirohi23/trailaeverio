@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import {
   Plane, Calendar, Users, Star, ChevronDown, ChevronUp,
   CheckCircle, X, Clock
 } from 'lucide-react';
 import ReviewCard from '@/components/ReviewCard';
 import UserReviews from '@/components/UserReview';
+import { toast } from 'react-toastify';
+
 const images = [
   'https://images.unsplash.com/photo-1725145722645-c4f569b49b6d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   'https://plus.unsplash.com/premium_photo-1675431435428-33c25f818d67?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D',
@@ -46,11 +48,15 @@ class ErrorBoundary extends React.Component {
 
 const ThailandTourPage = () => {
   const { title } = useParams();
+  const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [expandedDay, setExpandedDay] = useState(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [error, setError] = useState(null);
+  const [name, setName] = useState('');
+  const [numberOfTravellers, setNumberOfTravellers] = useState('');
+  const [whatsappNumber, setWhatsappNumber] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -71,7 +77,37 @@ const ThailandTourPage = () => {
     fetchData();
   }, [title]);
 
-  
+  const handleSendEnquiry = async () => {
+    const enquiryData = {
+      name,
+      numberOfTravellers: parseInt(numberOfTravellers, 10),
+      whatsappNumber,
+      destination: data?.title,
+    };
+    console.log("Sending enquiry:", enquiryData);
+
+
+    try {
+      const response = await fetch('https://api.perpenny.in/api/enquiries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(enquiryData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        navigate('/formsuccess');
+      } else {
+        toast.error(result.message || 'Failed to submit enquiry. Please try again.');
+      }
+    } catch (error) {
+      toast.error('Network error. Please try again.');
+      console.error('Error submitting enquiry:', error);
+    }
+  };
 
   const iconMap = {
     plane: <Plane className="w-5 h-5" />,
@@ -294,17 +330,26 @@ const ThailandTourPage = () => {
             <div className="space-y-5">
               <input
                 placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full bg-zinc-900 border border-purple-700/40 p-3 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
               <input
                 placeholder="Number of Travellers"
+                value={numberOfTravellers}
+                onChange={(e) => setNumberOfTravellers(e.target.value)}
                 className="w-full bg-zinc-900 border border-purple-700/40 p-3 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
               <input
                 placeholder="WhatsApp Number"
+                value={whatsappNumber}
+                onChange={(e) => setWhatsappNumber(e.target.value)}
                 className="w-full bg-zinc-900 border border-purple-700/40 p-3 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
-              <button className="w-full bg-purple-600 hover:bg-purple-500 text-white py-3 rounded-lg font-semibold transition duration-200">
+              <button
+                onClick={handleSendEnquiry}
+                className="w-full bg-purple-600 hover:bg-purple-500 text-white py-3 rounded-lg font-semibold transition duration-200"
+              >
                 Send Enquiry
               </button>
             </div>
