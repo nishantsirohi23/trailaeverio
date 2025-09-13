@@ -140,7 +140,7 @@ function Base() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Discover Your <span className="text-purple-500">Dream</span>
+          Discover Your <span className="text-purple-500">Dreams</span>
           <br /> Adventure with <span className="text-purple-500">Aerovia Holidays</span>
         </motion.h1>
 
